@@ -1,0 +1,10 @@
+.idea
+# Claude working files (temporary)
+docs/.claude/tasks/in-progress.md
+docs/.claude/scratch/
+
+# Keep these tracked
+!docs/.claude/features/
+!docs/.claude/context/
+!docs/.claude/agents/
+!claude.md
