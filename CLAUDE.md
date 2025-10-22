@@ -1,16 +1,59 @@
 # Working with Claude on [Project Name]
 
-> **Quick Start:** Read this file at the beginning of every conversation.
+> **Comprehensive Documentation Workflow for Quality Code**
+
+## ⚡ Quick Start
+
+### First Time Setup (New Projects Only)
+```
+Load docs/.claude/_SYSTEM/initialization-agent.md
+Initialize [language] project: [name]
+```
+
+**Examples:**
+- "Initialize Django project: TaskHub"
+- "Initialize Laravel project: ShopAPI"
+- "Initialize Python project: DataPipeline"
+
+Claude will ask you about your project and automatically generate all documentation.
+
+**⚠️ Note:** This boilerplate includes placeholder files in `docs/.claude/context/`. The initialization agent will replace these with your project's actual documentation.
+
+**Verify initialization succeeded:**
+```bash
+# Check that context files were generated
+ls docs/.claude/context/
+# Expected: project-overview.md, conventions.md, tech-stack.md, decision-log.md
+
+# Verify CLAUDE.md was updated (should show your project info, not placeholders)
+grep "Purpose:" CLAUDE.md
+
+# Check project structure was created
+ls -la  # Should see directories appropriate for your stack (apps/, src/, tests/, etc.)
+```
+
+### Starting a Development Session
+
+**Standard workflow:**
+```
+Load CLAUDE.md
+Load docs/.claude/context/project-overview.md
+Working on: [feature name or task description]
+```
+
+**What you get:**
+- ✅ Comprehensive project understanding
+- ✅ Reduced risk of hallucinations
+- ✅ Explicit conventions and patterns
+- ✅ Consistent code quality
+- ✅ Clear architectural guidance
+- ✅ Better for team collaboration
 
 ## 🎯 Project Overview
 - **Purpose:** [One sentence]
 - **Stage:** [MVP/Beta/Production]
 - **Tech Stack:** [Key technologies]
 - **Team:** [Size and structure]
-
-## 📖 Step-by-Step Instructions
-For detailed instructions on starting new projects or continuing existing work, see:
-**`docs/.claude/README.md`** - Complete step-by-step guide for all workflows
 
 ## 📂 Key Locations
 ```
@@ -29,29 +72,26 @@ src/                     - Source code
 4. **REQUIRED:** Use conventional commits
 5. **CHECK:** Existing patterns before suggesting new ones
 
-## 🔄 Standard Workflow
-1. Load context: `docs/.claude/context/project-overview.md`
+## 🔄 Standard Workflow (Default)
+
+### Starting New Work
+1. Load context: `CLAUDE.md` and `docs/.claude/context/project-overview.md`
 2. Review feature: `docs/.claude/features/[feature-name]/spec.md`
 3. Follow conventions: `docs/.claude/context/conventions.md`
 4. Implement → Test → Document
 
-## 🤖 Available Agents
-- **Architect** (`docs/.claude/agents/architect/`) - System design
-- **Reviewer** (`docs/.claude/agents/reviewer/`) - Code review
-- **Tester** (`docs/.claude/agents/tester/`) - Test planning
-- **Documenter** (`docs/.claude/agents/documenter/`) - Documentation
+### Common Prompts
 
-## 📋 Common Prompts
 **Start new feature:**
 ```
-Load claude.md and docs/.claude/context/project-overview.md
+Load CLAUDE.md and docs/.claude/context/project-overview.md
 Starting feature: [name]
 Spec: docs/.claude/features/[name]/spec.md
 ```
 
 **Resume work:**
 ```
-Load claude.md
+Load CLAUDE.md
 Continuing: [feature-name]
 Last completed: [task]
 Today's goal: [objective]
@@ -59,52 +99,89 @@ Today's goal: [objective]
 
 **Code review:**
 ```
-Activate Reviewer agent
-Review against: docs/.claude/context/conventions.md
-Files: [list]
+Load CLAUDE.md and conventions.md
+Review: [files or PR link]
+Focus: [security/performance/standards]
 ```
 
+## 🤖 Available Agents
+- **Product Owner** (`docs/.claude/_SYSTEM/agents/product-owner.md`) - Feature planning
+- **Systems Architect** (`docs/.claude/_SYSTEM/agents/systems-architect.md`) - Architecture design
+- **Backend Engineer** (`docs/.claude/_SYSTEM/agents/backend-engineer.md`) - Backend development
+- **Frontend Developer** (`docs/.claude/_SYSTEM/agents/frontend-developer.md`) - UI development
+- **Test Engineer** (`docs/.claude/_SYSTEM/agents/test-engineer.md`) - Test strategy
+- **Code Reviewer** (`docs/.claude/_SYSTEM/agents/code-reviewer.md`) - Code quality review
+- **Security Auditor** (`docs/.claude/_SYSTEM/agents/security-auditor.md`) - Security analysis
+- **Performance Optimizer** (`docs/.claude/_SYSTEM/agents/performance-optimizer.md`) - Performance tuning
+- **DevOps Engineer** (`docs/.claude/_SYSTEM/agents/devops-engineer.md`) - CI/CD & infrastructure
+- **Data Engineer** (`docs/.claude/_SYSTEM/agents/data-engineer.md`) - Data pipelines
+- **Documentation Specialist** (`docs/.claude/_SYSTEM/agents/documentation-specialist.md`) - Technical writing
+
 ## 🔗 Essential Files
-- **Full Context:** `docs/.claude/context/project-overview.md`
-- **Conventions:** `docs/.claude/context/conventions.md`
-- **Tech Stack:** `docs/.claude/context/tech-stack.md`
-- **Glossary:** `docs/.claude/context/glossary.md`
+
+**Generated during initialization (do not load before running initialization):**
+- **Full Context:** `docs/.claude/context/project-overview.md` - Comprehensive project context
+- **Conventions:** `docs/.claude/context/conventions.md` - Coding standards and patterns
+- **Tech Stack:** `docs/.claude/context/tech-stack.md` - Technology stack documentation
+- **Decision Log:** `docs/.claude/context/decision-log.md` - Architectural decisions
+
+**Optional (create as needed):**
+- **Glossary:** `docs/.claude/context/glossary.md` - Project terminology and domain language
 
 ## 📝 Notes
 - Update specs as implementation evolves
 - Archive obsolete content immediately
-- Document decisions in `docs/.claude/context/decisions.md`
+- Document decisions in `docs/.claude/context/decision-log.md`
 
 ---
 **Last Updated:** [Date]
 **Maintained By:** [Name/Team]
-```
 
 ---
 
-## Updated Directory Structure
-```
+## Directory Structure
+```markdown
 project-root/
-├── CLAUDE.md                         # 👈 Master instructions (read first)
+├── CLAUDE.md                              # Master instructions (read first)
 ├── README.md
 ├── .gitignore
+├── .env.example                           # Auto-generated during init
 │
 ├── docs/
-│   ├── .claude/                      # Claude workspace
-│   │   ├── README.md                 # How to use this workspace
-│   │   ├── features/                 # Feature specs
-│   │   ├── tasks/                    # Task management
-│   │   ├── context/                  # Project context
-│   │   │   ├── project-overview.md   # Detailed context
-│   │   │   ├── conventions.md
-│   │   │   └── tech-stack.md
-│   │   ├── prompts/                  # Reusable prompts
-│   │   ├── agents/                   # Agent configs
-│   │   └── archive/                  # ⚠️ DO NOT READ
+│   ├── .claude/                           # Claude workspace
+│   │   ├── _SYSTEM/                       # System configuration
+│   │   │   └── initialization-agent.md    # Automated project setup
+│   │   ├── _TEMPLATES/                    # Reference templates
+│   │   │   ├── project-overview.md        # Project context template
+│   │   │   ├── conventions-python.md      # Python best practices
+│   │   │   ├── conventions-django.md      # Django patterns
+│   │   │   ├── conventions-laravel.md     # Laravel conventions
+│   │   │   ├── conventions-javascript.md  # JS/TS standards
+│   │   │   ├── conventions-php.md         # PHP standards
+│   │   │   ├── tech-stack.md              # Tech stack template
+│   │   │   ├── decision-log.md            # Decision tracking
+│   │   │   ├── feature-spec-detailed.md   # Feature specification
+│   │   │   ├── glossary.md                # Project terminology
+│   │   │   ├── task-management.md         # Task tracking
+│   │   │   ├── agent-configs.md           # Agent configurations
+│   │   │   ├── prompt-templates.md        # Reusable prompts
+│   │   │   └── workflow-optimization-guide.md  # Best practices
+│   │   ├── context/                       # Your project context
+│   │   │   ├── project-overview.md        # Full project context
+│   │   │   ├── conventions.md             # Coding standards
+│   │   │   ├── tech-stack.md              # Technology choices
+│   │   │   └── decision-log.md            # Architectural decisions
+│   │   ├── features/                      # Feature specs & working docs
+│   │   ├── tasks/                         # Task management
+│   │   ├── agents/                        # Specialized agent configs
+│   │   ├── prompts/                       # Reusable prompts
+│   │   └── archive/                       # ⚠️ NEVER READ (obsolete)
 │   │
-│   ├── features/                     # Official docs
-│   ├── architecture/
-│   └── api/
+│   ├── features/                          # Official documentation
+│   ├── architecture/                      # Architecture docs
+│   └── api/                               # API documentation
 │
-└── src/
+├── src/                                   # Source code
+├── tests/                                 # Test files
+└── ...                                    # Your project files
 ```
