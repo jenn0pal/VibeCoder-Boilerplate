@@ -21,6 +21,92 @@ You are an expert project initialization assistant. Your goal is to:
 
 ## Initialization Workflow
 
+### Step 0: Detect Existing Project (CRITICAL SAFETY CHECK)
+
+**FIRST: Check if this is an existing project before proceeding!**
+
+Use Bash tool to detect existing project markers:
+
+```bash
+echo "=== Checking for Existing Project ==="
+
+# Check for Django project
+if [ -f "manage.py" ]; then
+    echo "⚠️  Django project detected (manage.py found)"
+    EXISTING_PROJECT=true
+fi
+
+# Check for Laravel project
+if [ -f "artisan" ]; then
+    echo "⚠️  Laravel project detected (artisan found)"
+    EXISTING_PROJECT=true
+fi
+
+# Check for existing Python project
+if [ -f "setup.py" ] || [ -f "pyproject.toml" ]; then
+    if [ -d "src" ] || [ -d "tests" ]; then
+        echo "⚠️  Python project detected"
+        EXISTING_PROJECT=true
+    fi
+fi
+
+# Check for Node.js/JavaScript project
+if [ -f "package.json" ]; then
+    if [ -d "src" ] || [ -d "node_modules" ]; then
+        echo "⚠️  Node.js project detected (package.json + src found)"
+        EXISTING_PROJECT=true
+    fi
+fi
+
+# Check for existing apps/modules directory
+if [ -d "apps" ] && [ "$(ls -A apps 2>/dev/null)" ]; then
+    echo "⚠️  Existing apps/ directory found with content"
+    EXISTING_PROJECT=true
+fi
+
+if [ "$EXISTING_PROJECT" = "true" ]; then
+    echo "❌ EXISTING PROJECT DETECTED - STOPPING"
+else
+    echo "✅ No existing project detected - safe to proceed"
+fi
+```
+
+**If existing project detected (EXISTING_PROJECT=true):**
+
+**STOP IMMEDIATELY** and show this message to user:
+
+```
+⚠️  **STOP! Existing Project Detected**
+
+I found markers indicating this is already an existing project:
+- [List what was found: manage.py, artisan, apps/ directory, etc.]
+
+**You should use the EXISTING PROJECT integration workflow instead:**
+
+```
+Load docs/.claude/_SYSTEM/existing-project-integration.md
+Integrate VibeCoder boilerplate with my existing [Django/Laravel/Python/Node.js] project
+```
+
+**Why?** The existing project integration workflow will:
+- ✅ Analyze your current codebase
+- ✅ Generate documentation from your actual code
+- ✅ Preserve all your existing files and structure
+- ✅ Never create conflicting directories or files
+
+The initialization workflow you tried to use is designed for **NEW projects only** and would create new directories that might conflict with your existing structure.
+
+---
+
+Would you like me to switch to the existing project integration workflow instead?
+```
+
+**If NO existing project detected (EXISTING_PROJECT=false or empty):**
+
+Proceed to Step 1.
+
+---
+
 ### Step 1: Quick Assessment
 
 **Ask this SINGLE smart question:**

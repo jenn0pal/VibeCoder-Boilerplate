@@ -15,6 +15,8 @@ VibeCoder Boilerplate is a carefully crafted project structure that optimizes th
 
 ## ⚡ Quick Start
 
+> **Choose your path:** New project or existing project?
+
 ### 1. Get the Boilerplate
 
 ```bash
@@ -149,6 +151,126 @@ Please help me:
 1. Validate the project structure
 2. Set up the development environment
 3. Create initial feature spec
+```
+
+### Integrating with an Existing Project
+
+**Already have a Django, Laravel, Python, JavaScript, or PHP project?**
+
+You can integrate VibeCoder documentation into your existing codebase without disrupting your current structure.
+
+#### Step 1: Add Boilerplate to Your Project
+
+```bash
+# From your existing project directory
+# Copy the VibeCoder structure
+git clone https://github.com/jenn0pal/vibecoding-boilerplate.git /tmp/vibecoder
+cp -r /tmp/vibecoder/docs .
+cp /tmp/vibecoder/CLAUDE.md .
+cp /tmp/vibecoder/.gitignore .gitignore  # Merge with existing .gitignore
+rm -rf /tmp/vibecoder
+```
+
+#### Step 2: Let Claude Analyze Your Project
+
+Start a Claude conversation with:
+
+```
+Load docs/.claude/_SYSTEM/existing-project-integration.md
+Integrate VibeCoder boilerplate with my existing Django project
+```
+
+**Examples for different frameworks:**
+```
+Integrate VibeCoder with my existing Django project
+Integrate VibeCoder with my existing Laravel project
+Integrate VibeCoder with my existing Python project
+Integrate VibeCoder with my existing Express/Node.js project
+```
+
+#### What Claude Will Do
+
+Claude will automatically:
+1. ✅ **Detect your project type** (Django, Laravel, Python, Node.js, PHP)
+2. ✅ **Analyze your existing structure** (apps, models, controllers, routes)
+3. ✅ **Read your configuration** (settings.py, package.json, composer.json)
+4. ✅ **Parse your dependencies** (requirements.txt, package.json, composer.json)
+5. ✅ **Generate documentation from actual code** (not templates!)
+6. ✅ **Preserve ALL existing files** (no overwrites, no conflicts)
+7. ✅ **Create context files** based on your current architecture
+8. ✅ **Document existing patterns** found in your codebase
+
+#### What Gets Created
+
+**New documentation only (no source code changes):**
+- `docs/.claude/context/project-overview.md` - Analyzed from your codebase
+- `docs/.claude/context/conventions.md` - Based on detected patterns
+- `docs/.claude/context/tech-stack.md` - Extracted from dependencies
+- `docs/.claude/context/decision-log.md` - Documents integration
+- `CLAUDE.md` - Updated with your project info
+
+**What NEVER changes:**
+- ✅ Your existing source code
+- ✅ Your existing configuration files (.env, settings.py, etc.)
+- ✅ Your existing project structure
+- ✅ Your existing dependencies
+- ✅ Your existing tests
+
+#### Verify Integration Succeeded
+
+```bash
+# Check that context files were generated
+ls docs/.claude/context/
+# Expected: project-overview.md, conventions.md, tech-stack.md, decision-log.md
+
+# Verify CLAUDE.md was updated
+grep "Purpose:" CLAUDE.md  # Should show actual project info
+
+# Verify existing structure preserved (important!)
+git status
+# Should ONLY show new files in docs/.claude/ and CLAUDE.md
+# Should NOT show changes to existing source code or config
+```
+
+#### Step 3: Start Using with Claude
+
+**Your first enhanced Claude session:**
+```
+Load CLAUDE.md
+Load docs/.claude/context/project-overview.md
+I need help with: [your task]
+```
+
+**Benefits you'll see immediately:**
+- ✅ Claude understands your existing architecture
+- ✅ Claude follows your existing patterns
+- ✅ Reduced hallucinations (knows what's already there)
+- ✅ Better code suggestions (understands context)
+- ✅ Consistent with your current codebase
+
+#### Step 4: Keep Documentation Updated
+
+As your project evolves, update the documentation:
+
+**When adding new apps/modules:**
+```
+Load CLAUDE.md
+I added a new app called 'notifications'
+Update docs/.claude/context/project-overview.md
+```
+
+**When changing dependencies:**
+```
+Load CLAUDE.md
+I added Redis and Celery for background tasks
+Update docs/.claude/context/tech-stack.md
+```
+
+**When making architectural decisions:**
+```
+Load CLAUDE.md
+Document decision: Using GraphQL instead of REST for new API
+Add to docs/.claude/context/decision-log.md
 ```
 
 ### Working on Features

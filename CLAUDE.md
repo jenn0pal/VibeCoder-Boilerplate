@@ -32,6 +32,40 @@ grep "Purpose:" CLAUDE.md
 ls -la  # Should see directories appropriate for your stack (apps/, src/, tests/, etc.)
 ```
 
+### Existing Project Integration
+
+**If you already have a Django/Laravel/Python/JavaScript project:**
+```
+Load docs/.claude/_SYSTEM/existing-project-integration.md
+Integrate VibeCoder boilerplate with my existing [framework] project
+```
+
+**Examples:**
+- "Integrate VibeCoder with my existing Django project"
+- "Integrate VibeCoder with my existing Laravel project"
+- "Integrate VibeCoder with my existing Python project"
+
+Claude will:
+- ✅ Analyze your existing codebase structure
+- ✅ Generate documentation from your actual code
+- ✅ Preserve your existing project structure
+- ✅ Create context files based on your current architecture
+- ✅ Document your existing conventions and patterns
+- ✅ Never overwrite your source code or config files
+
+**Verify integration succeeded:**
+```bash
+# Check that context files were generated
+ls docs/.claude/context/
+# Expected: project-overview.md, conventions.md, tech-stack.md, decision-log.md
+
+# Verify CLAUDE.md was updated (should show your project info, not placeholders)
+grep "Purpose:" CLAUDE.md
+
+# Verify existing structure was preserved (no new apps/, src/ directories)
+git status  # Should only show new files in docs/.claude/
+```
+
 ### Starting a Development Session
 
 **Standard workflow:**
