@@ -350,7 +350,6 @@ your-project/
 │
 ├── docs/
 │   ├── .claude/                       # Claude workspace
-│   │   ├── README.md                  # Claude-specific instructions
 │   │   ├── _TEMPLATES/                # 17+ ready-to-use templates
 │   │   │   ├── project-overview.md
 │   │   │   ├── conventions-*.md      # Language-specific conventions
@@ -359,6 +358,7 @@ your-project/
 │   │   │   └── ...more templates
 │   │   ├── context/                  # Your project context (customize these)
 │   │   ├── features/                  # Active feature documentation
+│   │   ├── bugs/                      # Bug tracking (BUG-[ID].md)
 │   │   ├── tasks/                     # Task management
 │   │   ├── prompts/                   # Reusable prompts
 │   │   ├── agents/                    # Agent configurations
@@ -389,6 +389,51 @@ Review scope: [files or PR]
 Focus areas: [security/performance/standards]
 Convention reference: docs/.claude/context/conventions.md
 ```
+
+### Bug Fixing Workflow
+```markdown
+Load CLAUDE.md and docs/.claude/context/conventions.md
+
+Bug: [Brief description]
+Severity: [Critical/High/Medium/Low]
+Environment: [Dev/Staging/Production]
+Steps to reproduce:
+1. [Step 1]
+2. [Step 2]
+3. [Step 3]
+
+Error message: [Paste error or describe unexpected behavior]
+
+Please help me:
+1. Write a failing test that reproduces the bug
+2. Identify the root cause
+3. Implement a fix following our conventions
+4. Verify the test passes
+5. Add regression test to prevent recurrence
+6. Update decision log if this reveals an architectural issue
+```
+
+**For complex bugs requiring detailed tracking:**
+
+Create a bug file in `docs/.claude/bugs/`:
+```bash
+# Copy template
+cp docs/.claude/_TEMPLATES/task-management.md docs/.claude/bugs/BUG-001-description.md
+
+# Fill in bug details (see lines 109-152 of task-management.md)
+# Then load in Claude session
+```
+
+**Bug severity guidelines:**
+- **Critical (P1)**: System down, data loss, security breach → Fix immediately (hotfix)
+- **High (P2)**: Major feature broken, many users affected → Fix in current sprint
+- **Medium (P3)**: Feature partially broken, workaround exists → Fix in next sprint
+- **Low (P4)**: Minor inconvenience, cosmetic issue → Backlog
+
+**After fixing:**
+- Create PR with conventional commit: `fix: resolve [bug description] (#issue)`
+- Update bug file with root cause analysis and resolution
+- Move to archive: `mv docs/.claude/bugs/BUG-XXX.md docs/.claude/archive/bugs/`
 
 ### Debugging Session
 ```markdown

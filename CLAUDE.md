@@ -92,6 +92,7 @@ Working on: [feature name or task description]
 ## 📂 Key Locations
 ```
 docs/.claude/features/   - Feature specs & working docs
+docs/.claude/bugs/       - Bug tracking (BUG-[ID].md format)
 docs/.claude/context/    - Project context (READ FIRST)
 docs/.claude/agents/     - Specialized agent configs
 docs/.claude/archive/    - ⚠️ NEVER READ (obsolete)
@@ -136,6 +137,29 @@ Today's goal: [objective]
 Load CLAUDE.md and conventions.md
 Review: [files or PR link]
 Focus: [security/performance/standards]
+```
+
+**Fix a bug:**
+```
+Load CLAUDE.md and docs/.claude/context/conventions.md
+
+Bug: [Brief description]
+Severity: [Critical/High/Medium/Low]
+Environment: [Dev/Staging/Production]
+Steps to reproduce:
+1. [Step 1]
+2. [Step 2]
+3. [Step 3]
+
+Error message: [Paste error or describe unexpected behavior]
+
+Please help me:
+1. Write a failing test that reproduces the bug
+2. Identify the root cause
+3. Implement a fix following our conventions
+4. Verify the test passes
+5. Add regression test to prevent recurrence
+6. Update decision log if this reveals an architectural issue
 ```
 
 ## 🤖 Available Agents
@@ -206,6 +230,7 @@ project-root/
 │   │   │   ├── tech-stack.md              # Technology choices
 │   │   │   └── decision-log.md            # Architectural decisions
 │   │   ├── features/                      # Feature specs & working docs
+│   │   ├── bugs/                          # Bug tracking (BUG-[ID].md)
 │   │   ├── tasks/                         # Task management
 │   │   ├── agents/                        # Specialized agent configs
 │   │   ├── prompts/                       # Reusable prompts
