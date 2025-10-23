@@ -91,13 +91,15 @@ Working on: [feature name or task description]
 
 ## 📂 Key Locations
 ```
-docs/.claude/features/   - Feature specs & working docs
-docs/.claude/bugs/       - Bug tracking (BUG-[ID].md format)
-docs/.claude/context/    - Project context (READ FIRST)
-docs/.claude/agents/     - Specialized agent configs
-docs/.claude/archive/    - ⚠️ NEVER READ (obsolete)
-docs/features/           - Official documentation
-src/                     - Source code
+docs/.claude/features/       - Feature specs & working docs
+docs/.claude/bugs/           - Bug tracking (BUG-[ID].md format)
+docs/.claude/modifications/  - Code modification plans (MOD-[ID].md format)
+docs/.claude/refactoring/    - Refactoring plans (REFACTOR-[ID].md format)
+docs/.claude/context/        - Project context (READ FIRST)
+docs/.claude/agents/         - Specialized agent configs
+docs/.claude/archive/        - ⚠️ NEVER READ (obsolete)
+docs/features/               - Official documentation
+src/                         - Source code
 ```
 
 ## 🚨 Critical Rules

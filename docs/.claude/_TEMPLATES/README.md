@@ -3,6 +3,8 @@
 ## Overview
 This directory contains comprehensive templates for optimizing your Claude workflow across different projects. These templates are designed to be copied and customized for your specific needs.
 
+**Note:** User-facing documentation (agent guides, prompt libraries, workflow tips) has been consolidated into the root README.md for easier access.
+
 ---
 
 ## 📁 Available Templates
@@ -66,47 +68,38 @@ This directory contains comprehensive templates for optimizing your Claude workf
 
 ### Workflow & Management
 
-10. **`prompt-templates.md`** - Reusable Claude prompts
-    - Project initialization
-    - Feature development
-    - Debugging and testing
-    - Documentation generation
-
-11. **`agent-configs.md`** - Specialized Claude agents
-    - System Architect
-    - Code Reviewer
-    - Test Engineer
-    - Documentation Specialist
-    - Security Auditor
-    - Performance Optimizer
-    - Frontend/Backend Developers
-    - DevOps Engineer
-    - Product Manager
-
-12. **`task-management.md`** - Task and project management
+10. **`task-management.md`** - Task and project management
     - User stories and epics
     - Sprint planning templates
     - Progress tracking
     - Release management
 
-13. **`feature-spec-detailed.md`** - Comprehensive feature specification
+11. **`feature-spec-detailed.md`** - Comprehensive feature specification
     - Business requirements
     - Technical design
     - API specifications
     - Testing strategy
     - Rollout planning
 
+12. **`code-modification.md`** - Code modification documentation (NEW in v1.2.0)
+    - Modification planning for medium/large changes
+    - Current state → Desired state tracking
+    - Impact analysis and risk assessment
+    - Testing and validation strategy
+    - Post-implementation review
+
+13. **`refactoring-plan.md`** - Refactoring documentation (NEW in v1.2.0)
+    - Test-driven refactoring approach
+    - Goals, metrics, and success criteria
+    - Phase-by-phase implementation plan
+    - Risk management and rollback strategy
+    - Performance impact tracking
+
 14. **`glossary.md`** - Project terminology and acronyms
     - Business terms
     - Technical concepts
     - Domain-specific vocabulary
     - Quick reference
-
-15. **`workflow-optimization-guide.md`** - Claude workflow best practices
-    - Setup and configuration
-    - Optimization techniques
-    - Common patterns
-    - Troubleshooting
 
 ---
 

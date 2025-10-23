@@ -739,4 +739,418 @@ echo -e "\n=== Validation Complete ==="
 
 ---
 
+---
+
+## Test Scenario 11: Code Modification Workflow - Theme Change (v1.2.0)
+
+### Setup
+- Existing Laravel project with Tailwind CSS
+- Current theme: blue (#3B82F6)
+- User wants to change theme to orange
+
+### Steps
+1. User starts session:
+   ```
+   Load CLAUDE.md and docs/.claude/context/conventions.md
+
+   Change: Change application theme from blue to orange
+   Type: Styling
+   Scope: Tailwind config, CSS files, Blade components
+   Reason: Rebrand to match new company colors
+
+   Current state: Primary color is blue (#3B82F6)
+   Desired state: Primary color is orange (#F97316)
+   ```
+
+2. Claude reads modifications/README.md for guidance
+3. Claude determines: Medium task (1+ hours, multiple files)
+4. Claude creates MOD-001-theme-orange.md using template
+5. Claude implements changes
+6. User validates
+
+### Expected Results
+✅ **File created:**
+- `docs/.claude/modifications/MOD-001-theme-orange.md` (populated from template)
+
+✅ **Template properly filled:**
+- Modification ID: MOD-001
+- Type: Styling
+- Files to Modify: lists tailwind.config.js, CSS files, Blade components
+- Current State: Shows current blue color code
+- Desired State: Shows target orange color code
+- Success Criteria: All blue colors replaced, accessibility maintained
+- Testing Strategy: Manual testing checklist for UI components
+- Performance Impact: Tools listed (Browser DevTools, Laravel Debugbar)
+
+✅ **Files modified:**
+- `tailwind.config.js` - theme.colors.primary updated
+- CSS files - blue colors replaced with orange
+- Blade components - color classes updated
+
+✅ **After completion:**
+- MOD-001-theme-orange.md moved to `docs/.claude/archive/modifications/`
+- Post-implementation section filled with actual results
+
+### Potential Gaps to Check
+- [ ] Does Claude read modifications/README.md for workflow guidance?
+- [ ] Does it correctly determine task size (medium = needs MOD file)?
+- [ ] Does it use code-modification.md template?
+- [ ] Does it populate template with specific values (not placeholders)?
+- [ ] Does it track changes in the MOD file?
+- [ ] Does it archive after completion?
+- [ ] Does template have tools guidance for measuring performance?
+
+---
+
+## Test Scenario 12: Refactoring Workflow - Database N+1 Query (v1.2.0)
+
+### Setup
+- Existing Laravel project
+- ProductController has N+1 query problem
+- Need to refactor to use eager loading
+
+### Steps
+1. User starts session:
+   ```
+   Load CLAUDE.md and docs/.claude/context/conventions.md
+
+   Refactor: ProductController index method
+   Goal: Improve performance - eliminate N+1 queries
+   Scope: Controller method, tests
+   Constraints: Must preserve same API response structure
+   ```
+
+2. Claude reads refactoring/README.md for guidance
+3. Claude checks: Are tests present? (CRITICAL requirement)
+4. If tests missing: Claude STOPS and asks user to write tests first
+5. If tests exist: Claude creates REFACTOR-001-product-controller.md
+6. Claude implements refactoring in phases
+7. User validates
+
+### Expected Results
+✅ **Critical workflow check:**
+- Claude MUST verify tests exist before starting
+- If no tests: Must refuse to refactor and explain why
+- Test coverage requirement: 80%+
+
+✅ **File created:**
+- `docs/.claude/refactoring/REFACTOR-001-product-controller.md` (from template)
+
+✅ **Template properly filled:**
+- Refactoring ID: REFACTOR-001
+- Component: ProductController
+- Primary Goal: Eliminate N+1 queries
+- Current Metrics: Baseline performance (200ms, 101 queries)
+- Target Metrics: Target performance (< 50ms, 2 queries)
+- Code Example (Before): Shows N+1 query code
+- Code Example (After): Shows eager loading code
+- Database Optimization Patterns: Eager Loading checked, with Laravel syntax
+- Tools for measuring: Lists Laravel Debugbar for query counting
+- Test-Driven Refactoring Approach: All 5 steps present
+- Phase 1: Preparation - Run tests, record baseline
+- Phase 2: Add eager loading
+- Phase 3: Remove N+1 queries
+- Validation after each phase: Tests pass, performance measured
+
+✅ **Refactoring phases executed:**
+- Phase 1: Tests run (all pass), baseline recorded
+- Phase 2: Eager loading added (`Product::with('category', 'images')`)
+- Tests run after Phase 2 (all pass)
+- Phase 3: Verify query count reduced
+- Performance measured: 200ms → 45ms, 101 queries → 2 queries
+- Final test run (all pass)
+
+✅ **After completion:**
+- REFACTOR-001 moved to `docs/.claude/archive/refactoring/`
+- Post-Refactoring section filled:
+  - Actual Results: Performance metrics achieved
+  - Success Criteria Met: All checkboxes checked
+  - Lessons Learned: What worked, what didn't
+
+### Potential Gaps to Check
+- [ ] Does Claude read refactoring/README.md for critical requirements?
+- [ ] Does it enforce "tests must exist BEFORE refactoring" rule?
+- [ ] Does it refuse to refactor if tests missing?
+- [ ] Does it use refactoring-plan.md template?
+- [ ] Does template have database optimization patterns?
+- [ ] Does template list framework-specific syntax (Laravel/Django)?
+- [ ] Does it run tests after EACH phase?
+- [ ] Does it measure performance before/after?
+- [ ] Does template have tools guidance?
+- [ ] Does it archive after completion?
+
+---
+
+## Test Scenario 13: Refactoring Workflow - No Tests Present (v1.2.0)
+
+### Setup
+- Existing Django project
+- views.py has complex function needing refactoring
+- NO tests exist for this view
+
+### Steps
+1. User requests refactoring:
+   ```
+   Refactor: user_dashboard view
+   Goal: Improve readability
+   ```
+
+2. Claude reads refactoring/README.md
+3. Claude checks for tests
+4. Finds NO tests for user_dashboard
+5. What happens?
+
+### Expected Behavior
+❌ **SHOULD NOT REFACTOR**
+
+Claude should:
+1. Detect missing tests
+2. Stop immediately
+3. Show error message:
+   ```
+   ⚠️ CRITICAL: Cannot refactor without tests
+
+   I searched for tests covering user_dashboard and found none.
+
+   Refactoring without tests is extremely risky. According to our
+   refactoring guidelines, we need 80%+ test coverage BEFORE refactoring.
+
+   Here's what we should do:
+
+   1. Write comprehensive tests for current behavior
+   2. Ensure all tests pass (green)
+   3. THEN proceed with refactoring
+
+   Would you like me to help you write tests first?
+   ```
+
+4. Offer to write tests using Test Engineer agent
+5. ONLY proceed with refactoring AFTER tests are written and passing
+
+### Current Behavior (If Gap Exists)
+⚠️ **MIGHT REFACTOR WITHOUT TESTS**
+- Would create REFACTOR file
+- Would make changes
+- Could break functionality silently
+- No safety net
+
+### Gap to Fix
+- [ ] Add "Test Existence Check" to refactoring workflow
+- [ ] Refuse to refactor if tests missing
+- [ ] Provide clear explanation of why tests are required
+- [ ] Offer to write tests first
+- [ ] Update refactoring/README.md with enforcement language
+
+---
+
+## Test Scenario 14: Edge Case - Small Modification (No MOD File Needed)
+
+### Setup
+- User wants to change a single text label
+- Very small task (< 15 minutes)
+
+### Steps
+1. User says: "Change 'Submit' button text to 'Send'"
+2. Claude evaluates task size
+
+### Expected Behavior
+✅ Claude should:
+1. Recognize this is a small task (< 1 hour)
+2. NOT create MOD file
+3. Make change directly
+4. Confirm change made
+
+❌ Should NOT:
+- Create docs/.claude/modifications/MOD-001-button-text.md
+- Use code-modification.md template for trivial changes
+
+### Potential Gaps to Check
+- [ ] Does Claude understand task size guidelines?
+- [ ] Does it skip MOD file for small tasks?
+- [ ] Does modifications/README.md clearly state when to use files vs prompts?
+
+---
+
+## Test Scenario 15: Cross-Workflow - Modification Becomes Refactoring
+
+### Setup
+- User starts with modification: "Improve search performance"
+- Claude investigates
+- Finds code needs refactoring, not just modification
+
+### Steps
+1. User requests:
+   ```
+   Change: Improve search performance
+   Type: Optimization
+   ```
+
+2. Claude analyzes search code
+3. Finds: Code has structural issues, needs refactoring
+4. What should Claude do?
+
+### Expected Behavior
+✅ Claude should:
+1. Recognize this is refactoring, not modification
+2. Explain the difference:
+   ```
+   I analyzed the search code and found this requires refactoring, not modification.
+
+   Modification: Change existing code while keeping structure
+   Refactoring: Improve code structure while preserving behavior
+
+   Your search code has:
+   - Deeply nested conditionals (complexity 15)
+   - N+1 query problem
+   - Tight coupling
+
+   These are structural issues requiring refactoring approach.
+
+   We should:
+   1. First check if tests exist
+   2. Use refactoring workflow (test-driven approach)
+   3. Create REFACTOR-XXX file instead of MOD-XXX
+
+   Proceed with refactoring workflow?
+   ```
+
+3. Redirect to refactoring workflow
+4. Check for tests
+5. Create REFACTOR file, not MOD file
+
+### Potential Gaps to Check
+- [ ] Can Claude distinguish modification vs refactoring?
+- [ ] Does it redirect to appropriate workflow?
+- [ ] Does it explain the difference to user?
+
+---
+
+## Simulation Checklist for v1.2.0 Workflows
+
+### For Code Modification Workflow
+
+**Prerequisites:**
+- [ ] Template exists: docs/.claude/_TEMPLATES/code-modification.md
+- [ ] README exists: docs/.claude/modifications/README.md
+- [ ] Directory exists: docs/.claude/modifications/
+- [ ] Archive directory exists: docs/.claude/archive/modifications/
+
+**Task Size Assessment:**
+- [ ] Small tasks (< 1 hour): Use prompt directly, NO MOD file
+- [ ] Medium tasks (1-4 hours): CREATE MOD file
+- [ ] Large tasks (> 4 hours): CREATE MOD file + detailed planning
+
+**Template Usage:**
+- [ ] Template has all required sections
+- [ ] Template includes Performance Impact with tools guidance
+- [ ] Tools listed: Browser DevTools, Laravel Debugbar, Django Debug Toolbar, Postman
+- [ ] Template includes Testing Strategy
+- [ ] Template includes Risk Assessment
+- [ ] Template includes Post-Implementation review
+
+**Workflow Execution:**
+- [ ] Read modifications/README.md for guidance
+- [ ] Copy template to modifications/ directory
+- [ ] Fill template with specific values (not placeholders)
+- [ ] Implement changes following plan
+- [ ] Update MOD file with progress
+- [ ] Fill Post-Implementation section
+- [ ] Move to archive/ after completion
+
+### For Refactoring Workflow
+
+**Prerequisites:**
+- [ ] Template exists: docs/.claude/_TEMPLATES/refactoring-plan.md
+- [ ] README exists: docs/.claude/refactoring/README.md
+- [ ] Directory exists: docs/.claude/refactoring/
+- [ ] Archive directory exists: docs/.claude/archive/refactoring/
+
+**Critical Requirements Check:**
+- [ ] MUST check if tests exist BEFORE refactoring
+- [ ] MUST refuse to refactor if tests missing
+- [ ] MUST explain why tests are required
+- [ ] MUST offer to write tests first
+- [ ] Test coverage requirement: 80%+
+
+**Template Usage:**
+- [ ] Template has Current Metrics section with tools guidance
+- [ ] Tools listed: cloc, radon, phpmetrics, coverage.py, phpunit, jest
+- [ ] Template has Database Optimization Patterns section
+- [ ] Patterns include: Eager Loading, Query Caching, Index Optimization, etc.
+- [ ] Framework-specific syntax provided (Laravel vs Django)
+- [ ] Template has Test-Driven Refactoring Approach section
+- [ ] Template has phase-by-phase plan
+- [ ] Each phase has validation checklist
+
+**Workflow Execution:**
+- [ ] Read refactoring/README.md for critical requirements
+- [ ] Check for tests (STOP if missing)
+- [ ] Run full test suite (ensure 100% passing)
+- [ ] Record baseline metrics
+- [ ] Copy template to refactoring/ directory
+- [ ] Fill template with specific metrics (not placeholders)
+- [ ] Execute Phase 1: Preparation
+- [ ] Execute Phase 2-4: Incremental refactoring
+  - [ ] Make small change
+  - [ ] Run tests after EACH change
+  - [ ] Commit when tests green
+  - [ ] Measure performance after each phase
+- [ ] Execute Phase 5: Finalization
+- [ ] Fill Post-Refactoring section with actual results
+- [ ] Move to archive/ after completion
+
+---
+
+## Gap Detection Matrix (Updated for v1.2.0)
+
+| Workflow | Test Scenario | Pass | Fail | Gaps Found | Fix Required |
+|----------|---------------|------|------|------------|--------------|
+| New Django | Happy path | | | | |
+| New Laravel | Happy path | | | | |
+| Existing Django | Happy path | | | | |
+| Existing Laravel | Happy path | | | | |
+| New → Wrong agent | Edge case | | | | |
+| Existing → Missing deps | Edge case | | | | |
+| Existing → No framework | Edge case | | | | |
+| Both → Doc updates | Cross-workflow | | | | |
+| Both → Validation fail | Error handling | | | | |
+| **Modification → Theme change** | **v1.2.0 Happy path** | | | | |
+| **Refactoring → N+1 query** | **v1.2.0 Happy path** | | | | |
+| **Refactoring → No tests** | **v1.2.0 Critical check** | | | | |
+| **Modification → Small task** | **v1.2.0 Edge case** | | | | |
+| **Mod → Refactor redirect** | **v1.2.0 Cross-workflow** | | | | |
+
+---
+
+## Success Criteria for v1.2.0 Workflows
+
+### Code Modification Workflow Passes If:
+- ✅ Task size correctly assessed (small vs medium vs large)
+- ✅ MOD file created for medium/large tasks
+- ✅ MOD file NOT created for small tasks
+- ✅ Template filled with specific values (not placeholders)
+- ✅ Performance Impact section includes tools guidance
+- ✅ Testing Strategy section completed
+- ✅ Risk Assessment completed
+- ✅ Changes implemented following plan
+- ✅ Post-Implementation section filled
+- ✅ File archived after completion
+
+### Refactoring Workflow Passes If:
+- ✅ **CRITICAL:** Tests checked BEFORE refactoring starts
+- ✅ **CRITICAL:** Refactoring refused if tests missing
+- ✅ Test coverage verified (80%+)
+- ✅ Baseline metrics recorded
+- ✅ REFACTOR file created with specific metrics
+- ✅ Current Metrics section includes tools guidance
+- ✅ Database Optimization Patterns section populated (if applicable)
+- ✅ Framework-specific syntax provided (Laravel/Django)
+- ✅ Phase-by-phase execution with tests after EACH phase
+- ✅ Performance measured before/after each phase
+- ✅ All tests pass throughout refactoring
+- ✅ Post-Refactoring section filled with actual results
+- ✅ File archived after completion
+
+---
+
 **Next Step:** Run these tests and document results in this file.

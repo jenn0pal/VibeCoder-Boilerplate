@@ -7,7 +7,7 @@
 
 VibeCoder Boilerplate is a carefully crafted project structure that optimizes the way you collaborate with Claude AI on software projects. It provides:
 
-- **📚 17+ Professional Templates** - From project overviews to specialized conventions
+- **📚 14 Professional Templates** - From project overviews to specialized conventions
 - **🤖 14 Specialized AI Agents** - Each optimized for specific development tasks
 - **📋 Structured Workflows** - Step-by-step guides for common development scenarios
 - **🔄 Context Management** - Keep Claude informed without information overload
@@ -320,6 +320,257 @@ Task: [specific task]
 Context: docs/.claude/context/conventions.md
 ```
 
+### Agent Reference Guide
+
+#### System Architect
+**Use for:** Architectural decisions, system design, technology selection
+
+**Activation:**
+```
+Activate System Architect agent.
+
+Context:
+- Current architecture: [Brief description]
+- Problem to solve: [Specific challenge]
+- Constraints: [Technical/business constraints]
+- Scale requirements: [Expected load]
+
+Please analyze and provide architectural recommendations.
+```
+
+**Specialties:**
+- Microservices vs monolithic architecture
+- API design (REST, GraphQL, gRPC)
+- Database design and optimization
+- Event-driven architecture
+- Domain-driven design (DDD)
+
+#### Code Reviewer
+**Use for:** Code quality analysis, security review, best practices validation
+
+**Activation:**
+```
+Activate Code Reviewer agent.
+
+Review scope: [files, PR, or module]
+Focus areas: [security/performance/maintainability]
+Convention reference: docs/.claude/context/conventions.md
+
+Please review this code thoroughly.
+```
+
+**Review criteria:**
+- Code quality and readability
+- Security vulnerabilities
+- Performance issues
+- Test coverage
+- Documentation completeness
+- Convention compliance
+
+#### Test Engineer
+**Use for:** Test strategy, test implementation, debugging test failures
+
+**Activation:**
+```
+Activate Test Engineer agent.
+
+Component: [Component to test]
+Testing type: [Unit/Integration/E2E]
+Coverage goal: [Target percentage]
+Framework: [pytest/Jest/PHPUnit]
+
+Please help create comprehensive tests.
+```
+
+**Expertise:**
+- Test-driven development (TDD)
+- Unit, integration, and E2E testing
+- Test coverage analysis
+- Mock and stub strategies
+- Performance and load testing
+
+#### Backend Engineer
+**Use for:** API development, database design, server-side logic
+
+**Activation:**
+```
+Activate Backend Engineer agent.
+
+Task: [Specific backend task]
+Stack: [Laravel/Django/Node.js]
+Database: [PostgreSQL/MySQL/MongoDB]
+Requirements: [Specific requirements]
+
+Please help implement this backend feature.
+```
+
+**Specialties:**
+- RESTful API design
+- Database schema design
+- ORM optimization
+- Authentication/Authorization
+- Caching strategies
+- Queue systems
+
+#### Frontend Developer
+**Use for:** UI components, client-side logic, responsive design
+
+**Activation:**
+```
+Activate Frontend Developer agent.
+
+Component: [Component to build]
+Framework: [React/Vue/Svelte]
+Styling: [Tailwind/CSS Modules]
+Requirements: [Specific UI requirements]
+
+Please help build this frontend component.
+```
+
+**Expertise:**
+- Modern JavaScript/TypeScript
+- Component-based architecture
+- State management (Pinia, Redux, Zustand)
+- Responsive design
+- Accessibility (WCAG)
+- Performance optimization
+
+#### Security Auditor
+**Use for:** Security analysis, vulnerability assessment, compliance
+
+**Activation:**
+```
+Activate Security Auditor agent.
+
+Audit scope: [Authentication/API/Data/Infrastructure]
+Compliance: [OWASP/GDPR/HIPAA/etc]
+Priority concerns: [Specific security concerns]
+
+Please perform a security audit.
+```
+
+**Focus areas:**
+- OWASP Top 10 vulnerabilities
+- Authentication and authorization
+- Data encryption and privacy
+- API security
+- SQL injection and XSS prevention
+- Dependency vulnerabilities
+
+#### Performance Optimizer
+**Use for:** Performance analysis, optimization, scaling
+
+**Activation:**
+```
+Activate Performance Optimizer agent.
+
+Performance issue: [Specific issue]
+Current metrics: [Load time, query count, etc]
+Target metrics: [Performance goals]
+Constraints: [Cannot change X, must maintain Y]
+
+Please help optimize performance.
+```
+
+**Optimization areas:**
+- Database query optimization
+- Caching strategies
+- Code profiling
+- Asset optimization
+- CDN configuration
+- Load balancing
+
+#### Documentation Specialist
+**Use for:** API docs, user guides, technical documentation
+
+**Activation:**
+```
+Activate Documentation Specialist agent.
+
+Documentation type: [API/User Guide/Technical]
+Audience: [Developers/End users/DevOps]
+Scope: [Specific features or modules]
+
+Please create comprehensive documentation.
+```
+
+**Deliverables:**
+- API documentation (OpenAPI/Swagger)
+- User guides and tutorials
+- Architecture diagrams
+- Inline code documentation
+- README files
+- Changelog and migration guides
+
+#### DevOps Engineer
+**Use for:** CI/CD, deployment, infrastructure, monitoring
+
+**Activation:**
+```
+Activate DevOps Engineer agent.
+
+Task: [Specific DevOps task]
+Platform: [AWS/GCP/Azure/Docker]
+Environment: [Dev/Staging/Production]
+Requirements: [Specific requirements]
+
+Please help with this DevOps task.
+```
+
+**Capabilities:**
+- CI/CD pipeline setup
+- Containerization (Docker, Kubernetes)
+- Infrastructure as Code (Terraform, CloudFormation)
+- Monitoring and logging
+- Deployment automation
+- Environment management
+
+#### Product Owner
+**Use for:** Feature planning, user stories, requirements gathering
+
+**Activation:**
+```
+Activate Product Owner agent.
+
+Feature: [Feature name]
+User problem: [Problem to solve]
+Success criteria: [How to measure success]
+Constraints: [Time/budget/technical]
+
+Please help define this feature.
+```
+
+**Outputs:**
+- User stories with acceptance criteria
+- Feature specifications
+- Sprint planning
+- Backlog prioritization
+- Stakeholder communication
+- Release planning
+
+#### Data Engineer
+**Use for:** Data pipelines, ETL, data warehouse design
+
+**Activation:**
+```
+Activate Data Engineer agent.
+
+Data task: [Specific data engineering task]
+Data sources: [List sources]
+Target: [Warehouse/Lake/Analytics]
+Volume: [Expected data volume]
+
+Please help with this data pipeline.
+```
+
+**Specialties:**
+- ETL/ELT pipeline design
+- Data warehouse architecture
+- Stream processing
+- Data quality and validation
+- Big data technologies
+- Analytics optimization
+
 ### Managing Tasks
 
 #### Creating Todo Lists
@@ -350,11 +601,12 @@ your-project/
 │
 ├── docs/
 │   ├── .claude/                       # Claude workspace
-│   │   ├── _TEMPLATES/                # 17+ ready-to-use templates
+│   │   ├── _TEMPLATES/                # 14 ready-to-use templates
 │   │   │   ├── project-overview.md
 │   │   │   ├── conventions-*.md      # Language-specific conventions
-│   │   │   ├── agent-configs.md      # AI agent configurations
 │   │   │   ├── feature-spec-detailed.md
+│   │   │   ├── code-modification.md  # Modification planning
+│   │   │   ├── refactoring-plan.md   # Refactoring planning
 │   │   │   └── ...more templates
 │   │   ├── context/                  # Your project context (customize these)
 │   │   ├── features/                  # Active feature documentation
@@ -546,6 +798,246 @@ Files changed: [list]
 Please update relevant documentation.
 ```
 
+## 📚 Prompt Library
+
+Quick-reference prompts for common development tasks.
+
+### Feature Development
+
+**API Endpoint Creation:**
+```
+Create a REST API endpoint for [functionality].
+
+Requirements:
+- Method: [GET/POST/PUT/DELETE]
+- Path: [/api/resource]
+- Authentication: [Required/Optional]
+- Input: [Parameters/payload]
+- Output: [Response format]
+- Business logic: [What should happen]
+
+Include validation, error handling, and tests.
+```
+
+**Database Schema Design:**
+```
+Design a database schema for [feature/entity].
+
+Requirements:
+- Entities: [List entities]
+- Relationships: [Describe]
+- Key operations: [CRUD, queries]
+- Performance: [Volume, patterns]
+
+Provide: ERD, table schemas, indexes, migrations.
+```
+
+### Debugging
+
+**Bug Investigation:**
+```
+I'm experiencing [issue description].
+
+Context:
+- Expected: [What should happen]
+- Actual: [What is happening]
+- Error: [Exact error message]
+- Steps to reproduce:
+  1. [Step 1]
+  2. [Step 2]
+- Environment: [Dev/Staging/Production]
+- Recent changes: [What changed]
+
+Code involved:
+[Paste code]
+
+Analyze causes, suggest fixes, and explain why.
+```
+
+**Performance Optimization:**
+```
+Optimize [component/query/function].
+
+Current:
+- Performance: [Current metric]
+- Target: [Desired metric]
+- Bottleneck: [If known]
+- Scale: [Data volume]
+
+Code:
+[Paste code]
+
+Identify issues, suggest optimizations, provide optimized code.
+```
+
+### Testing
+
+**Test Coverage Improvement:**
+```
+Improve test coverage for [component/module].
+
+Current coverage: [X%]
+Target coverage: [Y%]
+Testing framework: [pytest/Jest/PHPUnit]
+
+Files:
+- [File 1]
+- [File 2]
+
+Create comprehensive test suite covering:
+1. Happy path scenarios
+2. Edge cases
+3. Error conditions
+4. Integration points
+```
+
+**Test-Driven Development:**
+```
+Help me implement [feature] using TDD.
+
+Requirements:
+- [Requirement 1]
+- [Requirement 2]
+
+Please:
+1. Write failing tests first
+2. Implement minimal code to pass
+3. Refactor for quality
+4. Ensure all tests green
+```
+
+### Refactoring
+
+**Code Improvement:**
+```
+Refactor [component/function] to improve [readability/performance/maintainability].
+
+Current code:
+[Paste code]
+
+Constraints:
+- Must preserve: [External behavior/API]
+- Can change: [Internal implementation]
+- Target: [Specific improvement goal]
+
+Provide: Refactored code, explanation, before/after comparison.
+```
+
+**Extract Pattern:**
+```
+Extract [repeated code/pattern] into reusable [function/class/component].
+
+Occurrences:
+- [Location 1]
+- [Location 2]
+- [Location 3]
+
+Requirements:
+- Generic enough for all use cases
+- Maintain existing functionality
+- Follow project conventions
+```
+
+### Documentation
+
+**API Documentation:**
+```
+Generate API documentation for [endpoint/module].
+
+Format: [OpenAPI/JSDoc/PHPDoc]
+Include:
+- Endpoint descriptions
+- Request/response examples
+- Error codes
+- Authentication requirements
+- Rate limiting
+```
+
+**Code Comments:**
+```
+Add comprehensive documentation to [file/class/function].
+
+Current code:
+[Paste code]
+
+Include:
+- Purpose and overview
+- Parameter descriptions
+- Return value explanation
+- Usage examples
+- Edge cases and gotchas
+```
+
+### Architecture
+
+**System Design:**
+```
+Design a [scalable/reliable/secure] system for [functionality].
+
+Requirements:
+- Scale: [Expected load]
+- Constraints: [Technical/budget]
+- Integration: [External systems]
+- Non-functional: [Performance/security/availability]
+
+Provide:
+- Architecture diagram description
+- Component breakdown
+- Data flow
+- Technology choices with justification
+- Scalability plan
+```
+
+**Technology Selection:**
+```
+Help me choose between [Option A] and [Option B] for [use case].
+
+Context:
+- Current stack: [Technologies]
+- Requirements: [Functional needs]
+- Constraints: [Budget/team/time]
+- Scale: [Expected growth]
+
+Compare:
+- Pros/cons of each
+- Learning curve
+- Community support
+- Long-term maintenance
+- Cost implications
+```
+
+### Security
+
+**Security Review:**
+```
+Review [component/feature] for security vulnerabilities.
+
+Focus areas:
+- [Authentication/Authorization/Data validation/etc]
+- Compliance: [OWASP/GDPR/etc]
+
+Code/design:
+[Paste relevant code/architecture]
+
+Identify risks, suggest mitigations, prioritize by severity.
+```
+
+**Dependency Audit:**
+```
+Audit project dependencies for security issues.
+
+Package file:
+[Paste package.json/requirements.txt/composer.json]
+
+Check for:
+- Known vulnerabilities
+- Outdated versions
+- License compliance
+- Unmaintained packages
+
+Provide upgrade recommendations with risk assessment.
+```
+
 ## 💡 Best Practices
 
 ### ✅ DO:
@@ -563,6 +1055,182 @@ Please update relevant documentation.
 - **Don't modify** templates directly (copy first)
 - **Don't forget** to update progress tracking
 - **Don't mix** different convention styles
+
+## ⚡ Workflow Optimization Tips
+
+### Context Loading Strategy
+
+**Priority Order:**
+1. `CLAUDE.md` (always first)
+2. `project-overview.md` (when needed)
+3. Feature spec (current work)
+4. `conventions.md` (when coding)
+5. Other files (as required)
+
+**Tip:** Load context gradually, not all at once. Start minimal, add as needed.
+
+### Agent Chaining Patterns
+
+**Feature Development Chain:**
+```
+Product Owner → System Architect → Backend/Frontend Developer →
+Test Engineer → Documentation Specialist → DevOps Engineer
+```
+
+**Bug Resolution Chain:**
+```
+Identify → Fix → Test → Code Review
+```
+
+**Optimization Chain:**
+```
+Performance Optimizer → Measure → Implement → Test → Validate
+```
+
+### Prompt Engineering Tips
+
+**Use Structured Prompts:**
+```
+Task: [Clear title]
+Context: [Background info]
+Requirements: [Specific needs]
+Constraints: [Limitations]
+Output: [Expected result]
+```
+
+**Batch Related Operations:**
+```
+Please perform these related tasks:
+1. [Task 1]
+2. [Task 2]
+3. [Task 3]
+
+Use our conventions and track progress with todos.
+```
+
+**Be Specific:**
+```
+❌ "Fix the bug"
+✅ "Fix authentication timeout in src/auth.py:45 - users are logged out after 5 minutes instead of 30 minutes"
+
+❌ "Make it faster"
+✅ "Optimize database query in UserController::index() - currently 200ms with N+1 queries, target < 50ms"
+```
+
+### Fast Iteration Tips
+
+**Incremental Development:**
+- Make small, testable changes
+- Run tests after each change
+- Commit when tests pass
+- Get feedback early and often
+
+**Efficient Code Review:**
+```
+Review only changed lines in:
+- src/auth.py (lines 45-67)
+- tests/test_auth.py (lines 23-45)
+
+Focus on: security and performance
+```
+
+**Hot Reload Development:**
+- Use framework dev servers with hot reload
+- Run tests in watch mode
+- Keep feedback loops short (< 30 seconds)
+
+### Progress Tracking
+
+**Use Todos Effectively:**
+```
+Create todo list for [feature]:
+- [ ] Design database schema
+- [ ] Implement models
+- [ ] Create API endpoints
+- [ ] Write tests
+- [ ] Update documentation
+```
+
+**Track Decisions:**
+When making architectural decisions, immediately document in `decision-log.md`:
+```
+Decision: Using Redis for session storage
+Date: [Date]
+Reasoning: [Why]
+Alternatives considered: [What else]
+Trade-offs: [Pros/cons]
+```
+
+### Common Pitfalls to Avoid
+
+**❌ Context Overload:**
+Don't load 10+ files at once. Claude works better with focused context.
+
+**❌ Vague Requests:**
+"Make it better" → Instead, specify what "better" means
+
+**❌ Skipping Tests:**
+Always write tests, especially for bug fixes and refactoring
+
+**❌ Forgetting to Archive:**
+Move completed features to archive/ to keep workspace clean
+
+**❌ Inconsistent Conventions:**
+Pick one convention and stick to it throughout the project
+
+### Time-Saving Shortcuts
+
+**Quick Feature Start:**
+```
+Load CLAUDE.md
+New feature: [name]
+Requirements: [brief list]
+Create spec and implementation plan
+```
+
+**Quick Bug Fix:**
+```
+Load CLAUDE.md and conventions.md
+Bug: [brief description]
+Error: [paste error]
+Steps: [how to reproduce]
+Write test, fix, verify
+```
+
+**Quick Refactor:**
+```
+Load CLAUDE.md
+Refactor: [component]
+Goal: [improve X]
+Constraints: [preserve Y]
+Test-driven refactoring approach
+```
+
+### Daily Workflow Template
+
+**Morning Routine:**
+```
+1. Load CLAUDE.md
+2. Review yesterday's progress
+3. Check todos and prioritize
+4. Plan today's work (2-3 key tasks)
+```
+
+**During Development:**
+```
+1. Small, focused changes
+2. Test after each change
+3. Commit when tests pass
+4. Update todos as you go
+```
+
+**End of Day:**
+```
+1. Update progress files
+2. Archive completed features
+3. Document decisions made
+4. Note blockers for tomorrow
+```
 
 ## 🛠️ Modern Tooling Support
 
