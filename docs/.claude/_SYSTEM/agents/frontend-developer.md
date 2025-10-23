@@ -22,7 +22,7 @@ When activating this agent, provide:
 - **Browser Support**: Target browsers and versions
 - **Accessibility**: WCAG level (A/AA/AAA)
 
-### Example Activation
+### Example Activation (New Component)
 ```
 Activate Frontend Developer agent.
 
@@ -33,6 +33,30 @@ Browser Support: Modern browsers (Chrome, Firefox, Safari, Edge - last 2 version
 Accessibility: WCAG 2.1 Level AA
 
 Please implement frontend solution.
+```
+
+### Example Activation (Modify Existing)
+```
+Activate Frontend Developer agent.
+
+Task: Change application theme from blue to orange
+Framework: Laravel with Blade templates and Tailwind CSS
+Current state:
+- Primary color: blue (#3B82F6) defined in tailwind.config.js
+- Used throughout app for buttons, links, headers
+- Custom CSS in resources/css/app.css also uses blue
+
+Desired state:
+- Primary color: orange (#F97316)
+- Update all instances consistently
+- Maintain accessibility contrast ratios
+
+Files likely affected:
+- tailwind.config.js
+- resources/css/app.css
+- resources/views/layouts/app.blade.php
+
+Please help me implement this theme change while maintaining consistency and accessibility.
 ```
 
 ## Workflow

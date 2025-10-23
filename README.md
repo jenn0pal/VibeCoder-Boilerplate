@@ -375,6 +375,99 @@ your-project/
 
 ## 🔄 Common Workflows
 
+### Task Size Guidelines
+
+Understanding task size helps you choose the right workflow approach:
+
+**Small Tasks (< 1 hour) - No Feature Spec Needed**
+- Styling updates (colors, fonts, spacing, themes)
+- Configuration changes (environment variables, settings)
+- Simple text/copy updates
+- Minor UI tweaks
+- Bug fixes (use bug workflow)
+
+**Approach:** Use "Modify existing code" prompt directly in CLAUDE.md
+
+**Medium Tasks (1-4 hours) - Optional Feature Spec**
+- Updating existing features (add fields, validation, options)
+- Enhancing existing functionality
+- Code refactoring (use refactor workflow)
+- Dependency updates with breaking changes
+
+**Approach:** Use feature spec if changes affect multiple components or require planning
+
+**Large Tasks (> 4 hours) - Feature Spec Required**
+- New features from scratch
+- Major architectural changes
+- Complex functionality
+- Features with multiple user stories
+
+**Approach:** Always use feature spec workflow from CLAUDE.md
+
+### Common Modification Scenarios
+
+Real-world examples of modifications and their workflows:
+
+#### Scenario 1: Change Application Theme
+```markdown
+Load CLAUDE.md and docs/.claude/context/conventions.md
+
+Change: Change application theme from blue to orange
+Type: Styling
+Scope: Tailwind config, CSS variables, brand colors
+Reason: Rebranding initiative
+
+Current state: Primary color is blue (#3B82F6) throughout
+Desired state: Primary color should be orange (#F97316)
+
+Please help me implement this theme change.
+```
+
+#### Scenario 2: Add Validation to Existing Form
+```markdown
+Load CLAUDE.md and docs/.claude/context/conventions.md
+
+Change: Add email format validation to contact form
+Type: Feature Enhancement
+Scope: ContactForm.vue, validation rules
+Reason: Users submitting invalid emails
+
+Current state: Form accepts any text in email field
+Desired state: Validate email format, show error for invalid emails
+
+Please help me add this validation.
+```
+
+#### Scenario 3: Optimize Database Query
+```markdown
+Load CLAUDE.md and docs/.claude/context/conventions.md
+
+Refactor: User dashboard query
+Goal: Improve performance
+Scope: UserController, eager loading relationships
+Constraints: Must maintain same API response structure
+
+Current issue: N+1 query problem on user dashboard (200ms load time)
+Desired outcome: Single optimized query (< 50ms load time)
+
+Please help me optimize this query.
+```
+
+#### Scenario 4: Update API Rate Limits
+```markdown
+Load CLAUDE.md and docs/.claude/context/conventions.md
+
+Change: Increase API rate limits for premium users
+Type: Config
+Scope: config/api.php, RateLimitMiddleware
+Reason: Premium tier launch
+
+Current state: All users limited to 100 requests/hour
+Desired state: Free: 100/hour, Premium: 1000/hour
+
+Please help me implement tiered rate limits.
+```
+
 ### Daily Development Cycle
 1. **Start Session**: Load CLAUDE.md and current feature spec
 2. **Review Progress**: Check `in-progress.md` and todos

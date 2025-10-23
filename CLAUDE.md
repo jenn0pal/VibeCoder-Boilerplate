@@ -162,6 +162,48 @@ Please help me:
 6. Update decision log if this reveals an architectural issue
 ```
 
+**Modify existing code:**
+```
+Load CLAUDE.md and docs/.claude/context/conventions.md
+
+Change: [Brief description of modification]
+Type: [Styling/Feature Enhancement/Refactor/Config/Optimization]
+Scope: [Files/components affected]
+Reason: [Why making this change]
+
+Current state: [What exists now]
+Desired state: [What you want it to be]
+
+Please help me:
+1. Identify all files that need modification
+2. Implement the change following our conventions
+3. Update tests if behavior changes
+4. Update documentation if this is a significant change
+```
+
+**Examples:**
+- Styling: "Change theme from blue to orange"
+- Feature Enhancement: "Add 'Remember me' checkbox to login form"
+- Config: "Update API rate limits from 100 to 200 requests/min"
+- Optimization: "Cache frequently accessed database queries"
+
+**Refactor code:**
+```
+Load CLAUDE.md and docs/.claude/context/conventions.md
+
+Refactor: [Component/module/file to refactor]
+Goal: [Improve performance/readability/maintainability/testability]
+Scope: [What's allowed to change]
+Constraints: [What must stay the same - e.g., external API, behavior]
+
+Please help me:
+1. Ensure tests exist before refactoring (write if missing)
+2. Make incremental improvements
+3. Run tests after each change
+4. Maintain same external behavior
+5. Update documentation if architecture changes
+```
+
 ## 🤖 Available Agents
 - **Product Owner** (`docs/.claude/_SYSTEM/agents/product-owner.md`) - Feature planning
 - **Systems Architect** (`docs/.claude/_SYSTEM/agents/systems-architect.md`) - Architecture design
