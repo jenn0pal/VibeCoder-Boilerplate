@@ -261,6 +261,8 @@ skip_covered = true
 ### Models
 ```python
 """User models following Django best practices."""
+import uuid
+
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.urls import reverse
@@ -268,8 +270,29 @@ from django.utils.translation import gettext_lazy as _
 
 
 class TimeStampedModel(models.Model):
-    """Abstract base model with created and modified timestamps."""
+    """
+    Abstract base model with dual ID system and timestamps.
 
+    - id: Integer primary key for internal database relationships
+    - uid: UUID for external references and API exposure
+    - created_at/modified_at: Automatic timestamps
+    """
+
+    # Dual ID System
+    id = models.BigAutoField(
+        primary_key=True,
+        help_text=_("Internal database ID for relationships"),
+    )
+    uid = models.UUIDField(
+        _("public ID"),
+        unique=True,
+        default=uuid.uuid4,
+        editable=False,
+        db_index=True,
+        help_text=_("Public UUID for external references and API"),
+    )
+
+    # Timestamps
     created_at = models.DateTimeField(
         _("created at"),
         auto_now_add=True,
@@ -336,6 +359,54 @@ class User(AbstractUser):
         """Return the full name of the user."""
         full_name = f"{self.first_name} {self.last_name}".strip()
         return full_name or self.username
+```
+
+#### Dual ID Pattern Explained
+
+**Why use dual IDs?**
+
+1. **Security**: Don't expose sequential integer IDs in APIs (prevents enumeration attacks)
+2. **Flexibility**: UUID allows distributed systems and offline-first apps
+3. **Performance**: Integer IDs are faster for database joins and foreign keys
+4. **Privacy**: UUIDs don't leak information about record count or creation order
+
+**When to use each ID:**
+
+```python
+# Internal use (database relationships, joins, performance)
+user = User.objects.get(id=12345)
+post.author_id = user.id  # ForeignKey uses integer ID internally
+
+# External use (APIs, URLs, public references)
+user = User.objects.get(uid="550e8400-e29b-41d4-a716-446655440000")
+return f"/api/users/{user.uid}/"  # Expose UUID in API
+
+# In URLs - use uid for public-facing endpoints
+# /api/users/<uuid:uid>/  ✅ Good
+# /api/users/<int:id>/    ❌ Avoid
+```
+
+**Example model with relationships:**
+
+```python
+class Post(TimeStampedModel):
+    """Blog post model demonstrating dual ID usage."""
+
+    # Integer FK for database performance
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="posts",
+    )
+
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+
+    # uid inherited from TimeStampedModel
+
+    def get_api_url(self) -> str:
+        """Return API URL using UUID."""
+        return f"/api/posts/{self.uid}/"
 ```
 
 ### Views (Class-Based Views)
@@ -429,7 +500,11 @@ from apps.users.models import User
 
 
 class UserSerializer(serializers.ModelSerializer):
-    """Serializer for User model."""
+    """
+    Serializer for User model.
+
+    Uses 'uid' (UUID) for public API identification instead of integer 'id'.
+    """
 
     email = serializers.EmailField(
         validators=[UniqueValidator(queryset=User.objects.all())]
@@ -443,7 +518,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = [
-            "id",
+            "uid",  # Public UUID for API
             "username",
             "email",
             "first_name",
@@ -455,7 +530,7 @@ class UserSerializer(serializers.ModelSerializer):
             "date_joined",
             "posts_count",
         ]
-        read_only_fields = ["id", "date_joined", "is_verified"]
+        read_only_fields = ["uid", "date_joined", "is_verified"]
 
 
 class UserCreateSerializer(serializers.ModelSerializer):
@@ -553,12 +628,16 @@ from apps.users.serializers import (
 
 
 class UserViewSet(ModelViewSet):
-    """ViewSet for User model with custom actions."""
+    """
+    ViewSet for User model with custom actions.
+
+    Uses 'uid' (UUID) as lookup field for security and privacy.
+    """
 
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    lookup_field = "username"
+    lookup_field = "uid"  # Use UUID for public API endpoints
 
     def get_queryset(self):
         """Optimize queryset with select_related and prefetch_related."""
@@ -582,8 +661,8 @@ class UserViewSet(ModelViewSet):
         return Response(serializer.data)
 
     @action(detail=True, methods=["post"])
-    def follow(self, request: Request, username: str = None) -> Response:
-        """Follow a user."""
+    def follow(self, request: Request, uid: str = None) -> Response:
+        """Follow a user by their UUID."""
         user_to_follow = self.get_object()
 
         if user_to_follow == request.user:
@@ -693,16 +772,30 @@ router = DefaultRouter()
 router.register("users", views.UserViewSet)
 
 urlpatterns = [
-    # Template views
+    # Template views (internal - can use integer pk)
     path("", views.UserListView.as_view(), name="list"),
     path("<int:pk>/", views.UserDetailView.as_view(), name="detail"),
     path("update/", views.UserUpdateView.as_view(), name="update"),
 
-    # API views
+    # API views (public - uses UUID)
+    # The router automatically creates:
+    # GET    /api/users/              - List users
+    # POST   /api/users/              - Create user
+    # GET    /api/users/<uid>/        - Retrieve user (by UUID)
+    # PUT    /api/users/<uid>/        - Update user (by UUID)
+    # DELETE /api/users/<uid>/        - Delete user (by UUID)
+    # POST   /api/users/<uid>/follow/ - Custom action (by UUID)
     path("api/", include(router.urls)),
     path("api/login/", views.LoginView.as_view(), name="api-login"),
     path("api/logout/", views.LogoutView.as_view(), name="api-logout"),
 ]
+
+# Example API URLs generated:
+# /api/users/                                           - List/Create
+# /api/users/550e8400-e29b-41d4-a716-446655440000/      - Retrieve/Update/Delete (UUID)
+# /api/users/550e8400-e29b-41d4-a716-446655440000/follow/ - Follow user (UUID)
+# /api/users/me/                                        - Current user
+
 ```
 
 ### Settings Structure
