@@ -7,11 +7,12 @@
 
 VibeCoder Boilerplate is a carefully crafted project structure that optimizes the way you collaborate with Claude AI on software projects. It provides:
 
-- **📚 14 Professional Templates** - From project overviews to specialized conventions
+- **📚 16 Professional Templates** - From project overviews to multi-phase feature workflows
 - **🤖 14 Specialized AI Agents** - Each optimized for specific development tasks
-- **📋 Structured Workflows** - Step-by-step guides for common development scenarios
+- **📋 Structured Workflows** - Step-by-step guides for feature development, bug fixing, refactoring
 - **🔄 Context Management** - Keep Claude informed without information overload
 - **🛠️ Modern Tooling** - Built for modern Python (`uv`, `ruff`), JavaScript/TypeScript, PHP, Django, and Laravel
+- **🎯 Phase-Based Development** - Break complex features into manageable phases with agent assignments
 
 ## ⚡ Quick Start
 
@@ -601,17 +602,21 @@ your-project/
 │
 ├── docs/
 │   ├── .claude/                       # Claude workspace
-│   │   ├── _TEMPLATES/                # 14 ready-to-use templates
+│   │   ├── _TEMPLATES/                # 16 ready-to-use templates
 │   │   │   ├── project-overview.md
 │   │   │   ├── conventions-*.md      # Language-specific conventions
 │   │   │   ├── feature-spec-detailed.md
+│   │   │   ├── feature-implementation-workflow.md  # Multi-phase features
+│   │   │   ├── phase-task.md         # Individual phase tasks
 │   │   │   ├── code-modification.md  # Modification planning
 │   │   │   ├── refactoring-plan.md   # Refactoring planning
 │   │   │   └── ...more templates
 │   │   ├── context/                  # Your project context (customize these)
 │   │   ├── features/                  # Active feature documentation
+│   │   ├── tasks/                     # Phase-based task files (FEAT-[ID]-PHASE-[N].md)
 │   │   ├── bugs/                      # Bug tracking (BUG-[ID].md)
-│   │   ├── tasks/                     # Task management
+│   │   ├── modifications/             # Code modifications (MOD-[ID].md)
+│   │   ├── refactoring/               # Refactoring plans (REFACTOR-[ID].md)
 │   │   ├── prompts/                   # Reusable prompts
 │   │   ├── agents/                    # Agent configurations
 │   │   └── archive/                   # Completed/obsolete items
@@ -734,6 +739,123 @@ Review scope: [files or PR]
 Focus areas: [security/performance/standards]
 Convention reference: docs/.claude/context/conventions.md
 ```
+
+### Multi-Phase Feature Implementation Workflow
+
+**Use this workflow for complex features that require multiple specialized agents.**
+
+#### Step 1: Create Feature Implementation Plan
+
+```markdown
+Load CLAUDE.md and docs/.claude/context/project-overview.md
+
+Feature: [Feature name]
+Complexity: [Simple/Medium/Complex]
+Description: [Brief description]
+
+This feature requires multiple phases with different specializations.
+
+Please help me:
+1. Create a feature implementation workflow using:
+   docs/.claude/_TEMPLATES/feature-implementation-workflow.md
+2. Break down the feature into logical phases
+3. Assign appropriate agents to each phase
+4. Create individual phase task files using:
+   docs/.claude/_TEMPLATES/phase-task.md
+```
+
+**Claude will:**
+- Analyze the feature requirements
+- Break it into logical phases (e.g., Requirements → Architecture → Backend → Frontend → Testing)
+- Assign the appropriate specialized agent to each phase
+- Create a workflow file: `docs/.claude/features/[feature-name]/feature-implementation-workflow.md`
+- Create phase task files: `docs/.claude/tasks/FEAT-[ID]-PHASE-[N]-[brief-name].md`
+
+#### Step 2: Work on Each Phase
+
+For each phase, load the specific agent and task file:
+
+```markdown
+Load CLAUDE.md
+Load docs/.claude/context/project-overview.md
+Load docs/.claude/_SYSTEM/agents/[agent-name].md
+Load docs/.claude/tasks/FEAT-[ID]-PHASE-[N]-[brief-name].md
+
+I need to complete Phase [N] of feature [Feature Name].
+Please help me execute this phase following our conventions.
+```
+
+**Example phases:**
+
+**Phase 1: Requirements (Product Owner)**
+```
+Load docs/.claude/_SYSTEM/agents/product-owner.md
+Load docs/.claude/tasks/FEAT-042-PHASE-1-requirements.md
+
+Complete Phase 1: Define requirements and acceptance criteria
+```
+
+**Phase 2: Architecture (Systems Architect)**
+```
+Load docs/.claude/_SYSTEM/agents/systems-architect.md
+Load docs/.claude/tasks/FEAT-042-PHASE-2-architecture.md
+
+Complete Phase 2: Design system architecture and API contracts
+```
+
+**Phase 3: Backend (Backend Engineer)**
+```
+Load docs/.claude/_SYSTEM/agents/backend-engineer.md
+Load docs/.claude/tasks/FEAT-042-PHASE-3-backend.md
+
+Complete Phase 3: Implement API endpoints and business logic
+```
+
+**Phase 4: Frontend (Frontend Developer)**
+```
+Load docs/.claude/_SYSTEM/agents/frontend-developer.md
+Load docs/.claude/tasks/FEAT-042-PHASE-4-frontend.md
+
+Complete Phase 4: Build UI components and integrate with API
+```
+
+**Phase 5: Testing (Test Engineer)**
+```
+Load docs/.claude/_SYSTEM/agents/test-engineer.md
+Load docs/.claude/tasks/FEAT-042-PHASE-5-testing.md
+
+Complete Phase 5: E2E tests, performance tests, security review
+```
+
+#### Step 3: Track Progress
+
+Each phase task file includes:
+- ✅ Success criteria checklist
+- ✅ Deliverables list
+- ✅ Handoff documentation for next phase
+- ✅ Progress tracking
+
+Update the parent workflow file as each phase completes.
+
+#### Common Phase Patterns
+
+**Full-Stack Feature (5 phases):**
+1. Requirements Definition (Product Owner)
+2. System Architecture (Systems Architect)
+3. Backend Implementation (Backend Engineer)
+4. Frontend Implementation (Frontend Developer)
+5. Testing & QA (Test Engineer)
+
+**Backend-Heavy Feature (4 phases):**
+1. Requirements & Design (Product Owner + Systems Architect)
+2. Data Modeling (Backend Engineer / Data Engineer)
+3. API Implementation (Backend Engineer)
+4. Testing & Documentation (Test Engineer + Documentation Specialist)
+
+**Infrastructure Feature (3 phases):**
+1. Infrastructure Planning (Systems Architect + DevOps Engineer)
+2. Implementation & Configuration (DevOps Engineer)
+3. Security & Monitoring (Security Auditor + DevOps Engineer)
 
 ### Bug Fixing Workflow
 ```markdown

@@ -1,9 +1,11 @@
 # Claude Documentation Templates
 
 ## Overview
-This directory contains comprehensive templates for optimizing your Claude workflow across different projects. These templates are designed to be copied and customized for your specific needs.
+This directory contains 16 comprehensive templates for optimizing your Claude workflow across different projects. These templates are designed to be copied and customized for your specific needs.
 
 **Note:** User-facing documentation (agent guides, prompt libraries, workflow tips) has been consolidated into the root README.md for easier access.
+
+**Deprecated Templates:** Templates that have been deprecated are archived in `docs/.claude/archive/_TEMPLATES/deprecated/`. Do not use deprecated templates.
 
 ---
 
@@ -81,21 +83,35 @@ This directory contains comprehensive templates for optimizing your Claude workf
     - Testing strategy
     - Rollout planning
 
-12. **`code-modification.md`** - Code modification documentation (NEW in v1.2.0)
+12. **`feature-implementation-workflow.md`** - Multi-phase feature workflow (NEW in v1.3.0)
+    - Break complex features into manageable phases
+    - Agent assignment for each phase
+    - Phase dependencies and handoffs
+    - Progress tracking and quality gates
+    - Timeline and risk management
+
+13. **`phase-task.md`** - Individual phase task template (NEW in v1.3.0)
+    - Single-phase implementation with dedicated agent
+    - Detailed requirements and deliverables
+    - Input/output artifacts for handoffs
+    - Testing strategy and quality gates
+    - Progress tracking and completion checklist
+
+14. **`code-modification.md`** - Code modification documentation (v1.2.0)
     - Modification planning for medium/large changes
     - Current state → Desired state tracking
     - Impact analysis and risk assessment
     - Testing and validation strategy
     - Post-implementation review
 
-13. **`refactoring-plan.md`** - Refactoring documentation (NEW in v1.2.0)
+15. **`refactoring-plan.md`** - Refactoring documentation (v1.2.0)
     - Test-driven refactoring approach
     - Goals, metrics, and success criteria
     - Phase-by-phase implementation plan
     - Risk management and rollback strategy
     - Performance impact tracking
 
-14. **`glossary.md`** - Project terminology and acronyms
+16. **`glossary.md`** - Project terminology and acronyms
     - Business terms
     - Technical concepts
     - Domain-specific vocabulary

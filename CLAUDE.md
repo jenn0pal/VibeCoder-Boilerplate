@@ -92,6 +92,7 @@ Working on: [feature name or task description]
 ## 📂 Key Locations
 ```
 docs/.claude/features/       - Feature specs & working docs
+docs/.claude/tasks/          - Phase-based feature tasks (FEAT-[ID]-PHASE-[N].md format)
 docs/.claude/bugs/           - Bug tracking (BUG-[ID].md format)
 docs/.claude/modifications/  - Code modification plans (MOD-[ID].md format)
 docs/.claude/refactoring/    - Refactoring plans (REFACTOR-[ID].md format)
@@ -204,6 +205,36 @@ Please help me:
 3. Run tests after each change
 4. Maintain same external behavior
 5. Update documentation if architecture changes
+```
+
+**Implement multi-phase feature:**
+```
+Load CLAUDE.md and docs/.claude/context/project-overview.md
+
+Feature: [Feature name]
+Complexity: [Simple/Medium/Complex]
+Description: [Brief description]
+
+This feature requires multiple phases with different specializations.
+
+Please help me:
+1. Create a feature implementation workflow using:
+   docs/.claude/_TEMPLATES/feature-implementation-workflow.md
+2. Break down the feature into logical phases
+3. Assign appropriate agents to each phase
+4. Create individual phase task files using:
+   docs/.claude/_TEMPLATES/phase-task.md
+```
+
+**Work on specific phase:**
+```
+Load CLAUDE.md
+Load docs/.claude/context/project-overview.md
+Load docs/.claude/_SYSTEM/agents/[agent-name].md
+Load docs/.claude/tasks/FEAT-[ID]-PHASE-[N]-[brief-name].md
+
+I need to complete Phase [N] of feature [Feature Name].
+Please help me execute this phase following our conventions.
 ```
 
 ## 🤖 Available Agents
