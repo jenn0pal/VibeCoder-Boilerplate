@@ -14,6 +14,9 @@ Initialize [language] project: [name]
 - "Initialize Django project: TaskHub"
 - "Initialize Laravel project: ShopAPI"
 - "Initialize Python project: DataPipeline"
+- "Initialize Nuxt project: MyApp"
+- "Initialize Vue SPA project: Dashboard"
+- "Initialize Vue PWA project: MobileApp"
 
 Claude will ask you about your project and automatically generate all documentation.
 
@@ -34,7 +37,7 @@ ls -la  # Should see directories appropriate for your stack (apps/, src/, tests/
 
 ### Existing Project Integration
 
-**If you already have a Django/Laravel/Python/JavaScript project:**
+**If you already have a Django/Laravel/Python/JavaScript/Vue/Nuxt project:**
 ```
 Load docs/.claude/_SYSTEM/existing-project-integration.md
 Integrate VibeCoder boilerplate with my existing [framework] project
@@ -44,6 +47,9 @@ Integrate VibeCoder boilerplate with my existing [framework] project
 - "Integrate VibeCoder with my existing Django project"
 - "Integrate VibeCoder with my existing Laravel project"
 - "Integrate VibeCoder with my existing Python project"
+- "Integrate VibeCoder with my existing Nuxt project"
+- "Integrate VibeCoder with my existing Vue SPA project"
+- "Integrate VibeCoder with my existing Vue PWA project"
 
 Claude will:
 - ✅ Analyze your existing codebase structure
@@ -291,6 +297,9 @@ project-root/
 │   │   │   ├── conventions-laravel.md     # Laravel conventions
 │   │   │   ├── conventions-javascript.md  # JS/TS standards
 │   │   │   ├── conventions-php.md         # PHP standards
+│   │   │   ├── conventions-vue-nuxt.md    # Nuxt + Vue 3 conventions
+│   │   │   ├── conventions-vue-spa.md     # Vue SPA + Vite + Pinia conventions
+│   │   │   ├── conventions-vue-pwa.md     # Vue PWA + Vite + Pinia conventions
 │   │   │   ├── tech-stack.md              # Tech stack template
 │   │   │   ├── decision-log.md            # Decision tracking
 │   │   │   ├── feature-spec-detailed.md   # Feature specification
