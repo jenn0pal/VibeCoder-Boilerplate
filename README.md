@@ -42,6 +42,9 @@ Select the appropriate convention template for your project:
 | **JavaScript/TypeScript** | `conventions-javascript.md` | ES2024+, React/Vue/Node.js |
 | **PHP** | `conventions-php.md` | PHP 8.3+ with PSR standards |
 | **Laravel** | `conventions-laravel.md` | Laravel 11+ patterns |
+| **Nuxt 3** | `conventions-vue-nuxt.md` | Nuxt 3 + Vue 3 SSR patterns |
+| **Vue SPA** | `conventions-vue-spa.md` | Vue 3 SPA + Vite + Pinia |
+| **Vue PWA** | `conventions-vue-pwa.md` | Progressive Web Apps with Vue 3 |
 
 ### 3. Let Claude Initialize Your Project
 
@@ -57,6 +60,9 @@ Initialize [language/framework] project: [name]
 Initialize Django project: TaskHub
 Initialize Laravel project: ShopAPI
 Initialize Python project: DataPipeline
+Initialize Nuxt project: MyApp
+Initialize Vue SPA project: Dashboard
+Initialize Vue PWA project: MobileApp
 ```
 
 **Claude will ask you one simple question:**
@@ -156,7 +162,7 @@ Please help me:
 
 ### Integrating with an Existing Project
 
-**Already have a Django, Laravel, Python, JavaScript, or PHP project?**
+**Already have a Django, Laravel, Python, JavaScript, PHP, Vue, or Nuxt project?**
 
 You can integrate VibeCoder documentation into your existing codebase without disrupting your current structure.
 
@@ -187,6 +193,9 @@ Integrate VibeCoder with my existing Django project
 Integrate VibeCoder with my existing Laravel project
 Integrate VibeCoder with my existing Python project
 Integrate VibeCoder with my existing Express/Node.js project
+Integrate VibeCoder with my existing Nuxt project
+Integrate VibeCoder with my existing Vue SPA project
+Integrate VibeCoder with my existing Vue PWA project
 ```
 
 #### What Claude Will Do
@@ -1367,6 +1376,14 @@ Test-driven refactoring approach
 - **Build Tools**: Vite, Webpack, or esbuild
 - **Testing**: Jest, Vitest, or Playwright
 - **Linting**: ESLint with modern configs
+
+### Vue/Nuxt Projects
+- **Package Management**: `pnpm`, `npm`, or `yarn`
+- **Build Tools**: Vite (for Vue SPA/PWA), Nuxt CLI (for Nuxt)
+- **State Management**: Pinia (recommended)
+- **Testing**: Vitest + Vue Test Utils
+- **Router**: Vue Router (SPA/PWA), File-based routing (Nuxt)
+- **PWA**: Vite PWA Plugin with Workbox
 
 ### PHP/Laravel
 - **Package Management**: Composer
