@@ -102,6 +102,8 @@ docs/.claude/tasks/          - Phase-based feature tasks (FEAT-[ID]-PHASE-[N].md
 docs/.claude/bugs/           - Bug tracking (BUG-[ID].md format)
 docs/.claude/modifications/  - Code modification plans (MOD-[ID].md format)
 docs/.claude/refactoring/    - Refactoring plans (REFACTOR-[ID].md format)
+docs/.claude/tech-debt/      - Technical debt tracking (DEBT-[ID].md format)
+docs/.claude/upgrades/       - Framework/dependency upgrades (UPGRADE-[ID].md format)
 docs/.claude/context/        - Project context (READ FIRST)
 docs/.claude/agents/         - Specialized agent configs
 docs/.claude/archive/        - ⚠️ NEVER READ (obsolete)
@@ -243,7 +245,116 @@ I need to complete Phase [N] of feature [Feature Name].
 Please help me execute this phase following our conventions.
 ```
 
+**Track technical debt:**
+```
+Load CLAUDE.md and docs/.claude/context/conventions.md
+
+Tech Debt: [Brief description]
+Type: [Framework Upgrade/Dependency Update/Code Refactoring/Performance/Security]
+Priority: [Critical/High/Medium/Low]
+Estimated Effort: [Hours/Days/Weeks]
+
+Current impact:
+- [Impact 1 - e.g., Slows down feature development by 20%]
+- [Impact 2 - e.g., Security vulnerability risk]
+- [Impact 3 - e.g., Blocking framework upgrade]
+
+Please help me:
+1. Assess the scope and complexity
+2. Create a tech debt tracking document (DEBT-[ID].md)
+3. Develop an implementation plan
+4. Identify risks and dependencies
+5. Provide timeline estimate
+```
+
+**Upgrade framework:**
+```
+Load CLAUDE.md and docs/.claude/context/tech-stack.md
+
+Framework Upgrade: [Framework name]
+From: [Current version]
+To: [Target version]
+Upgrade Type: [Major/Minor/Patch]
+
+Reason: [Why upgrade now? - e.g., Security, features, end-of-support]
+
+Please help me:
+1. Check breaking changes in release notes
+2. Audit package compatibility
+3. Create upgrade plan with rollback strategy (UPGRADE-[ID].md)
+4. Execute upgrade incrementally
+5. Validate with comprehensive tests
+6. Update documentation
+```
+
+**Upgrade dependency:**
+```
+Load CLAUDE.md and docs/.claude/context/tech-stack.md
+
+Dependency Upgrade: [package-name]
+From: [current version]
+To: [target version]
+Type: [Major/Minor/Patch]
+
+Reason: [Security/Bug fix/New feature/Maintenance]
+CVE ID (if applicable): [CVE-YYYY-XXXXX]
+
+Please help me:
+1. Check breaking changes and compatibility
+2. Assess impact on our codebase
+3. Create dependency upgrade plan (DEP-[ID].md)
+4. Test upgrade in isolation
+5. Update code if needed
+6. Deploy to staging then production
+```
+
+**Assess breaking change:**
+```
+Load CLAUDE.md and docs/.claude/context/conventions.md
+
+Breaking Change: [Description]
+Type: [API Change/Database Schema/Configuration/Dependency Upgrade]
+Severity: [Critical/High/Medium/Low]
+
+Proposed change:
+[What we want to change and why]
+
+Affects:
+- [Who/what is affected]
+
+Please help me:
+1. Analyze impact and blast radius
+2. Create breaking change assessment (BREAK-[ID].md)
+3. Develop migration strategy
+4. Plan communication timeline
+5. Create migration tools/scripts
+6. Document rollback procedure
+```
+
+**Plan data migration:**
+```
+Load CLAUDE.md and docs/.claude/context/tech-stack.md
+
+Migration: [Description]
+Type: [Database Schema/Data Migration/Platform Migration/Architecture]
+Scope: [What's being migrated]
+Risk Level: [Critical/High/Medium/Low]
+
+Current state: [What exists now]
+Target state: [What we want]
+
+Please help me:
+1. Analyze current and target state
+2. Create migration strategy (MIGRATION-[ID].md)
+3. Develop migration scripts
+4. Plan testing and validation
+5. Create rollback procedure
+6. Execute migration with zero downtime (if required)
+```
+
 ## 🤖 Available Agents
+
+### Agent List
 - **Product Owner** (`docs/.claude/_SYSTEM/agents/product-owner.md`) - Feature planning
 - **Systems Architect** (`docs/.claude/_SYSTEM/agents/systems-architect.md`) - Architecture design
 - **Backend Engineer** (`docs/.claude/_SYSTEM/agents/backend-engineer.md`) - Backend development
@@ -255,6 +366,51 @@ Please help me execute this phase following our conventions.
 - **DevOps Engineer** (`docs/.claude/_SYSTEM/agents/devops-engineer.md`) - CI/CD & infrastructure
 - **Data Engineer** (`docs/.claude/_SYSTEM/agents/data-engineer.md`) - Data pipelines
 - **Documentation Specialist** (`docs/.claude/_SYSTEM/agents/documentation-specialist.md`) - Technical writing
+
+### How to Delegate Tasks to Agents
+
+**Use the Task tool to properly delegate work to specialized agents:**
+
+```
+Use the Task tool with this prompt:
+
+Load docs/.claude/_SYSTEM/agents/[agent-name].md
+Load docs/.claude/context/conventions.md
+
+Activate as [Agent Name] agent.
+
+Task: [Specific task description]
+Type: [Task type specific to the agent]
+[Additional agent-specific parameters]
+
+Please complete this task following the agent's workflow and conventions.
+```
+
+**Example - Delegating to Backend Engineer:**
+```
+Task tool prompt:
+
+Load docs/.claude/_SYSTEM/agents/backend-engineer.md
+Load docs/.claude/context/conventions.md
+
+Activate as Backend Developer agent.
+
+Task: Create user authentication API with JWT
+Type: REST API
+Database: PostgreSQL
+Authentication: JWT tokens
+Scale: 50K concurrent users
+
+Please implement following our conventions.
+```
+
+**Why delegate with Task tool?**
+- ✅ Creates true specialized agent instance
+- ✅ Agent works autonomously
+- ✅ Better separation of concerns
+- ✅ Agent reports complete results
+
+**Complete guide:** `docs/.claude/_SYSTEM/agents-guide.md`
 
 ## 🔗 Essential Files
 
