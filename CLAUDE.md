@@ -315,6 +315,7 @@ Please help me:
 **Assess breaking change:**
 ```
 Load CLAUDE.md and docs/.claude/context/conventions.md
+Load docs/.claude/_TEMPLATES/_BASE/breaking-change-assessment.md
 
 Breaking Change: [Description]
 Type: [API Change/Database Schema/Configuration/Dependency Upgrade]
@@ -327,8 +328,8 @@ Affects:
 - [Who/what is affected]
 
 Please help me:
-1. Analyze impact and blast radius
-2. Create breaking change assessment (BREAK-[ID].md)
+1. Analyze impact and blast radius using the assessment template
+2. Create breaking change assessment document (BREAK-[ID].md)
 3. Develop migration strategy
 4. Plan communication timeline
 5. Create migration tools/scripts
@@ -338,6 +339,7 @@ Please help me:
 **Plan data migration:**
 ```
 Load CLAUDE.md and docs/.claude/context/tech-stack.md
+Load docs/.claude/_TEMPLATES/_BASE/migration-strategy.md
 
 Migration: [Description]
 Type: [Database Schema/Data Migration/Platform Migration/Architecture]
@@ -349,7 +351,7 @@ Target state: [What we want]
 
 Please help me:
 1. Analyze current and target state
-2. Create migration strategy (MIGRATION-[ID].md)
+2. Create migration strategy document (MIGRATION-[ID].md) using the template
 3. Develop migration scripts
 4. Plan testing and validation
 5. Create rollback procedure
