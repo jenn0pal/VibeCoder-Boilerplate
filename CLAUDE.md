@@ -146,8 +146,12 @@ Today's goal: [objective]
 **Code review:**
 ```
 Load CLAUDE.md and conventions.md
+Load docs/.claude/_TEMPLATES/_SHARED/code-review-checklist.md
+
 Review: [files or PR link]
 Focus: [security/performance/standards]
+
+Please review the code using the checklist as a guide.
 ```
 
 **Fix a bug:**
@@ -356,6 +360,7 @@ Please help me:
 ```
 Load CLAUDE.md
 Load docs/.claude/context/tech-stack.md
+Load docs/.claude/_TEMPLATES/_BASE/deployment-checklist.md
 
 Deployment: [Feature/Release name]
 Environment: [Staging/Production]
@@ -369,16 +374,16 @@ Pre-deployment checklist:
 - [ ] Rollback plan ready
 
 Please help me:
-1. Verify all pre-deployment requirements
-2. Create deployment checklist
-3. Execute deployment following our process
-4. Verify deployment success
-5. Monitor for issues
+1. Verify all pre-deployment requirements using the deployment checklist
+2. Execute deployment following our process
+3. Verify deployment success
+4. Monitor for issues
 ```
 
 **Create release notes:**
 ```
 Load CLAUDE.md
+Load docs/.claude/_TEMPLATES/_BASE/release-notes.md
 
 Release: [Version X.Y.Z]
 Release Date: [YYYY-MM-DD]
@@ -388,7 +393,7 @@ Changes since last release:
 - [List commits/PRs or "generate from git log"]
 
 Please help me:
-1. Generate release notes from changes
+1. Generate release notes from changes using the template
 2. Categorize changes (Features/Fixes/Breaking/etc.)
 3. Highlight breaking changes and migrations
 4. Include upgrade instructions
@@ -398,6 +403,7 @@ Please help me:
 **Handle production incident:**
 ```
 Load CLAUDE.md
+Load docs/.claude/_TEMPLATES/_BASE/incident-response.md
 
 INCIDENT: [Brief description]
 Severity: [P1-Critical/P2-High/P3-Medium/P4-Low]
@@ -409,10 +415,54 @@ Current status:
 
 Please help me:
 1. Assess the situation and identify root cause
-2. Suggest immediate mitigation steps
+2. Suggest immediate mitigation steps following the incident response template
 3. Develop permanent fix
 4. Create incident report
 5. Plan post-mortem
+```
+
+**Perform security audit:**
+```
+Load CLAUDE.md
+Load docs/.claude/context/conventions.md
+Load docs/.claude/_TEMPLATES/_SHARED/security-audit-checklist.md
+
+Audit Scope: [Full application/Specific feature/API/Authentication]
+Focus Areas:
+- [e.g., Authentication & Authorization]
+- [e.g., Input Validation]
+- [e.g., Data Protection]
+
+Please help me:
+1. Perform comprehensive security audit using the checklist
+2. Identify vulnerabilities and security risks
+3. Assess severity of findings (Critical/High/Medium/Low)
+4. Provide remediation recommendations
+5. Create security audit report with prioritized action items
+```
+
+**Perform performance audit:**
+```
+Load CLAUDE.md
+Load docs/.claude/context/tech-stack.md
+Load docs/.claude/_TEMPLATES/_SHARED/performance-audit-template.md
+
+Performance Issue: [Description or "comprehensive audit"]
+Scope: [Full application/Specific feature/Database/Frontend/Backend]
+Current Metrics:
+- [e.g., Page load time: 5s]
+- [e.g., API response time: 2s]
+- [e.g., Database query time: 1s]
+
+Target Metrics:
+- [Desired performance goals]
+
+Please help me:
+1. Analyze performance using the audit template
+2. Identify bottlenecks and optimization opportunities
+3. Provide specific optimization recommendations
+4. Estimate impact of each optimization
+5. Create performance improvement plan
 ```
 
 ## 🤖 Available Agents
