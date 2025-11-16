@@ -352,6 +352,69 @@ Please help me:
 6. Execute migration with zero downtime (if required)
 ```
 
+**Deploy to production:**
+```
+Load CLAUDE.md
+Load docs/.claude/context/tech-stack.md
+
+Deployment: [Feature/Release name]
+Environment: [Staging/Production]
+Type: [Standard/Hotfix/Rollback]
+
+Pre-deployment checklist:
+- [ ] All tests passing
+- [ ] Code reviewed and approved
+- [ ] Database migrations tested
+- [ ] Environment variables configured
+- [ ] Rollback plan ready
+
+Please help me:
+1. Verify all pre-deployment requirements
+2. Create deployment checklist
+3. Execute deployment following our process
+4. Verify deployment success
+5. Monitor for issues
+```
+
+**Create release notes:**
+```
+Load CLAUDE.md
+
+Release: [Version X.Y.Z]
+Release Date: [YYYY-MM-DD]
+Type: [Major/Minor/Patch]
+
+Changes since last release:
+- [List commits/PRs or "generate from git log"]
+
+Please help me:
+1. Generate release notes from changes
+2. Categorize changes (Features/Fixes/Breaking/etc.)
+3. Highlight breaking changes and migrations
+4. Include upgrade instructions
+5. Format for [GitHub Releases/CHANGELOG.md/Blog post]
+```
+
+**Handle production incident:**
+```
+Load CLAUDE.md
+
+INCIDENT: [Brief description]
+Severity: [P1-Critical/P2-High/P3-Medium/P4-Low]
+Started: [Time]
+Impact: [Who/what is affected]
+
+Current status:
+[What's happening now]
+
+Please help me:
+1. Assess the situation and identify root cause
+2. Suggest immediate mitigation steps
+3. Develop permanent fix
+4. Create incident report
+5. Plan post-mortem
+```
+
 ## 🤖 Available Agents
 
 ### Agent List
@@ -493,9 +556,12 @@ project-root/
 │   │   │   ├── feature-spec-detailed.md   # Feature specification
 │   │   │   ├── glossary.md                # Project terminology
 │   │   │   ├── task-management.md         # Task tracking
-│   │   │   ├── agent-configs.md           # Agent configurations
 │   │   │   ├── prompt-templates.md        # Reusable prompts
 │   │   │   └── workflow-optimization-guide.md  # Best practices
+│   │   ├── _SYSTEM/                       # System configuration
+│   │   │   ├── initialization-agent.md    # Automated project setup
+│   │   │   ├── agents-guide.md            # Agent usage guide
+│   │   │   └── agents/                    # Individual agent configs
 │   │   ├── context/                       # Your project context
 │   │   │   ├── project-overview.md        # Full project context
 │   │   │   ├── conventions.md             # Coding standards
