@@ -150,16 +150,19 @@ From user's answer, extract:
 
 ```bash
 # Read all required templates
-Read docs/.claude/_TEMPLATES/project-overview.md
-Read docs/.claude/_TEMPLATES/tech-stack.md
-Read docs/.claude/_TEMPLATES/decision-log.md
+Read docs/.claude/_TEMPLATES/_BASE/project-overview.md
+Read docs/.claude/_TEMPLATES/_BASE/tech-stack.md
+Read docs/.claude/_TEMPLATES/_BASE/decision-log.md
 
 # Read the appropriate conventions template based on tech stack
-If Django: Read docs/.claude/_TEMPLATES/conventions-django.md
-If Laravel: Read docs/.claude/_TEMPLATES/conventions-laravel.md
-If Python (generic): Read docs/.claude/_TEMPLATES/conventions-python.md
-If JavaScript/TypeScript: Read docs/.claude/_TEMPLATES/conventions-javascript.md
-If PHP: Read docs/.claude/_TEMPLATES/conventions-php.md
+If Django: Read docs/.claude/_TEMPLATES/django/conventions.md
+If Laravel: Read docs/.claude/_TEMPLATES/laravel/conventions.md
+If Python (generic): Read docs/.claude/_TEMPLATES/python/conventions.md
+If JavaScript/TypeScript: Read docs/.claude/_TEMPLATES/javascript/conventions.md
+If PHP: Read docs/.claude/_TEMPLATES/php/conventions.md
+If Nuxt 3: Read docs/.claude/_TEMPLATES/vue/conventions-base.md AND docs/.claude/_TEMPLATES/vue/conventions-nuxt.md
+If Vue SPA: Read docs/.claude/_TEMPLATES/vue/conventions-base.md AND docs/.claude/_TEMPLATES/vue/conventions-spa.md
+If Vue PWA: Read docs/.claude/_TEMPLATES/vue/conventions-base.md AND docs/.claude/_TEMPLATES/vue/conventions-pwa.md
 ```
 
 ### Step 4: Generate Core Documentation Files
@@ -243,11 +246,14 @@ When working on this project:
 ```
 
 **Mapping:**
-- Python generic → Write content from `conventions-python.md`
-- Django → Write content from `conventions-django.md`
-- JavaScript/TypeScript → Write content from `conventions-javascript.md`
-- PHP → Write content from `conventions-php.md`
-- Laravel → Write content from `conventions-laravel.md`
+- Python generic → Write content from `python/conventions.md`
+- Django → Write content from `django/conventions.md`
+- JavaScript/TypeScript → Write content from `javascript/conventions.md`
+- PHP → Write content from `php/conventions.md`
+- Laravel → Write content from `laravel/conventions.md`
+- Nuxt 3 → Combine `vue/conventions-base.md` + `vue/conventions-nuxt.md`
+- Vue SPA → Combine `vue/conventions-base.md` + `vue/conventions-spa.md`
+- Vue PWA → Combine `vue/conventions-base.md` + `vue/conventions-pwa.md`
 
 **NO manual editing needed** - these templates are comprehensive and ready to use.
 

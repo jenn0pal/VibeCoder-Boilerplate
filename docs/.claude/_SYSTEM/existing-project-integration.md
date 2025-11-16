@@ -368,12 +368,19 @@ When working on this project:
 **Approach A: Copy framework template (faster)**
 
 ```bash
-# Read the appropriate template
-Read docs/.claude/_TEMPLATES/conventions-[framework].md
+# Read the appropriate template based on detected framework
+# Django: Read docs/.claude/_TEMPLATES/django/conventions.md
+# Laravel: Read docs/.claude/_TEMPLATES/laravel/conventions.md
+# Python: Read docs/.claude/_TEMPLATES/python/conventions.md
+# JavaScript/Node: Read docs/.claude/_TEMPLATES/javascript/conventions.md
+# PHP: Read docs/.claude/_TEMPLATES/php/conventions.md
+# Nuxt: Read docs/.claude/_TEMPLATES/vue/conventions-base.md + vue/conventions-nuxt.md
+# Vue SPA: Read docs/.claude/_TEMPLATES/vue/conventions-base.md + vue/conventions-spa.md
+# Vue PWA: Read docs/.claude/_TEMPLATES/vue/conventions-base.md + vue/conventions-pwa.md
 
 # Write to context directory
 Write docs/.claude/context/conventions.md
-[Content from template]
+[Content from template(s)]
 ```
 
 **Approach B: Analyze existing code patterns (more accurate)**

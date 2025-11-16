@@ -423,6 +423,38 @@ Please implement following our conventions.
 **Optional (create as needed):**
 - **Glossary:** `docs/.claude/context/glossary.md` - Project terminology and domain language
 
+## 📚 Template Organization (v2.0)
+
+**Templates are now organized by stack to reduce token waste:**
+
+```
+docs/.claude/_TEMPLATES/
+├── _BASE/          # Universal templates (all projects)
+├── _SHARED/        # Reusable components (git, testing, security)
+├── python/         # Python-specific templates
+├── django/         # Django framework templates
+├── php/            # PHP-specific templates
+├── laravel/        # Laravel framework templates
+├── javascript/     # JavaScript/TypeScript templates
+└── vue/            # Vue 3 ecosystem templates
+```
+
+**Loading patterns:**
+- **Django:** Load `django/conventions.md`
+- **Laravel:** Load `laravel/conventions.md`
+- **Python:** Load `python/conventions.md`
+- **JavaScript/Node:** Load `javascript/conventions.md`
+- **Nuxt 3:** Load `vue/conventions-base.md` + `vue/conventions-nuxt.md`
+- **Vue SPA:** Load `vue/conventions-base.md` + `vue/conventions-spa.md`
+- **Vue PWA:** Load `vue/conventions-base.md` + `vue/conventions-pwa.md`
+
+**Benefits:**
+- 40-50% token reduction (no cross-stack pollution)
+- Focused, relevant examples only
+- Composition-based Vue templates (no duplication)
+
+See `docs/.claude/_TEMPLATES/README.md` for complete details.
+
 ## 📝 Notes
 - Update specs as implementation evolves
 - Archive obsolete content immediately
