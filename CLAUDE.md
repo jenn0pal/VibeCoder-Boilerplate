@@ -40,16 +40,16 @@ ls -la  # Should see directories appropriate for your stack (apps/, src/, tests/
 **If you already have a Django/Laravel/Python/JavaScript/Vue/Nuxt project:**
 ```
 Load docs/.claude/_SYSTEM/existing-project-integration.md
-Integrate VibeCoder boilerplate with my existing [framework] project
+Integrate ClaudeContext with my existing [framework] project
 ```
 
 **Examples:**
-- "Integrate VibeCoder with my existing Django project"
-- "Integrate VibeCoder with my existing Laravel project"
-- "Integrate VibeCoder with my existing Python project"
-- "Integrate VibeCoder with my existing Nuxt project"
-- "Integrate VibeCoder with my existing Vue SPA project"
-- "Integrate VibeCoder with my existing Vue PWA project"
+- "Integrate ClaudeContext with my existing Django project"
+- "Integrate ClaudeContext with my existing Laravel project"
+- "Integrate ClaudeContext with my existing Python project"
+- "Integrate ClaudeContext with my existing Nuxt project"
+- "Integrate ClaudeContext with my existing Vue SPA project"
+- "Integrate ClaudeContext with my existing Vue PWA project"
 
 Claude will:
 - ✅ Analyze your existing codebase structure

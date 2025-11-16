@@ -341,6 +341,6 @@ MIT License - See LICENSE file for details
 
 ---
 
-**Thank you for testing VibeCoder Boilerplate v1.3.0-beta!**
+**Thank you for testing ClaudeContext Boilerplate v1.3.0-beta!**
 
 Your feedback helps us build better tools for AI-assisted development. 🚀

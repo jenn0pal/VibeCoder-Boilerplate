@@ -1,4 +1,4 @@
-# VibeCoder Boilerplate 🚀
+# ClaudeContext 🚀
 
 > **Stop Explaining Your Project to Claude Every Time**
 >
@@ -6,7 +6,7 @@
 
 ## 🎯 What Problem Does This Solve?
 
-**Without VibeCoder:**
+**Without ClaudeContext:**
 - ❌ You repeat the same project context every Claude session
 - ❌ Claude forgets your coding conventions and patterns
 - ❌ Inconsistent code quality across sessions
@@ -14,7 +14,7 @@
 - ❌ Framework upgrades are risky and ad-hoc
 - ❌ Missing audit trail for architectural decisions
 
-**With VibeCoder:**
+**With ClaudeContext:**
 - ✅ **Load context once** - Claude remembers your entire project
 - ✅ **Consistent quality** - Enforces your conventions automatically
 - ✅ **Zero hallucinations** - Claude knows what actually exists in your codebase
@@ -151,7 +151,7 @@ The initialization agent will:
 
 **Manual Method (Alternative):**
 ```
-I'm setting up a new project using the VibeCoder boilerplate.
+I'm setting up a new project using the ClaudeContext boilerplate.
 
 Please help me initialize by:
 1. Reading docs/.claude/_TEMPLATES/project-overview.md
@@ -183,13 +183,13 @@ Please help me:
 
 **Already have a Django, Laravel, Python, JavaScript, PHP, Vue, or Nuxt project?**
 
-You can integrate VibeCoder documentation into your existing codebase without disrupting your current structure.
+You can integrate ClaudeContext documentation into your existing codebase without disrupting your current structure.
 
 #### Step 1: Add Boilerplate to Your Project
 
 ```bash
 # From your existing project directory
-# Copy the VibeCoder structure
+# Copy the ClaudeContext structure
 git clone https://github.com/jenn0pal/vibecoding-boilerplate.git /tmp/vibecoder
 cp -r /tmp/vibecoder/docs .
 cp /tmp/vibecoder/CLAUDE.md .
@@ -203,18 +203,18 @@ Start a Claude conversation with:
 
 ```
 Load docs/.claude/_SYSTEM/existing-project-integration.md
-Integrate VibeCoder boilerplate with my existing Django project
+Integrate ClaudeContext boilerplate with my existing Django project
 ```
 
 **Examples for different frameworks:**
 ```
-Integrate VibeCoder with my existing Django project
-Integrate VibeCoder with my existing Laravel project
-Integrate VibeCoder with my existing Python project
-Integrate VibeCoder with my existing Express/Node.js project
-Integrate VibeCoder with my existing Nuxt project
-Integrate VibeCoder with my existing Vue SPA project
-Integrate VibeCoder with my existing Vue PWA project
+Integrate ClaudeContext with my existing Django project
+Integrate ClaudeContext with my existing Laravel project
+Integrate ClaudeContext with my existing Python project
+Integrate ClaudeContext with my existing Express/Node.js project
+Integrate ClaudeContext with my existing Nuxt project
+Integrate ClaudeContext with my existing Vue SPA project
+Integrate ClaudeContext with my existing Vue PWA project
 ```
 
 #### What Claude Will Do
@@ -1611,7 +1611,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🌟 Why VibeCoder Works
+## 🌟 Why ClaudeContext Works
 
 ### The Problem with Traditional AI-Assisted Development
 When working with Claude without a system:
@@ -1621,8 +1621,8 @@ When working with Claude without a system:
 - Risky framework upgrades without proper planning
 - Inconsistent code quality across different Claude sessions
 
-### The VibeCoder Solution
-With this boilerplate:
+### The ClaudeContext Solution
+With this framework:
 - **One-time setup**: Initialize once, context loads in seconds
 - **Enforced standards**: Claude follows YOUR conventions every time
 - **Complete workflows**: From features to bugs to tech debt to migrations
@@ -1630,7 +1630,7 @@ With this boilerplate:
 - **Decision tracking**: Every choice documented automatically
 
 ### Real-World Results
-Teams using VibeCoder report:
+Teams using ClaudeContext report:
 - ⚡ **50% faster** onboarding (Claude understands project immediately)
 - ✅ **30% better** code quality (consistent patterns enforced)
 - 📉 **80% reduction** in repeated context explanations
@@ -1644,11 +1644,11 @@ Teams using VibeCoder report:
 Ready to stop repeating yourself and start building faster with Claude?
 
 **Get Started:**
-1. Clone the boilerplate
+1. Clone ClaudeContext
 2. Run initialization agent (asks ONE question)
 3. Start building with full context in < 5 minutes
 
-**Remember**: The best documentation is the one that gets used and updated. This boilerplate gives you the structure - make it your own!
+**Remember**: The best documentation is the one that gets used and updated. ClaudeContext gives you the structure - make it your own!
 
 ---
 
@@ -1676,4 +1676,4 @@ Ready to stop repeating yourself and start building faster with Claude?
 
 ---
 
-*VibeCoder Boilerplate v1.3.0 - Stop Repeating Yourself, Start Building Faster*
+*ClaudeContext v1.3.0 - Stop Repeating Yourself, Start Building Faster*

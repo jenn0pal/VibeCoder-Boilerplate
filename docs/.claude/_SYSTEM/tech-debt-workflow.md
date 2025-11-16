@@ -2,7 +2,7 @@
 
 > **System guide for managing technical debt in your project**
 >
-> This guide explains how to identify, track, prioritize, and resolve technical debt using the VibeCoder workflow.
+> This guide explains how to identify, track, prioritize, and resolve technical debt using the ClaudeContext workflow.
 
 ## Table of Contents
 
@@ -734,4 +734,4 @@ Accept as-is for now, revisit in 6 months
 ---
 
 **Last Updated:** 2024-01-15
-**Maintained By:** VibeCoder Team
+**Maintained By:** ClaudeContext Team

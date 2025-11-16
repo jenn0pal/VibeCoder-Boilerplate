@@ -1,10 +1,10 @@
 # Specialized AI Agents Usage Guide
 
-> **Complete guide to using VibeCoder's 14 specialized AI agents for optimal development workflow**
+> **Complete guide to using ClaudeContext's 14 specialized AI agents for optimal development workflow**
 
 ## Overview
 
-VibeCoder includes 14 specialized AI agents, each optimized for specific development tasks. Think of them as expert consultants you can activate for different phases of development.
+ClaudeContext includes 14 specialized AI agents, each optimized for specific development tasks. Think of them as expert consultants you can activate for different phases of development.
 
 **Key Benefit:** Instead of a generic Claude session, you get focused expertise with domain-specific knowledge and best practices.
 

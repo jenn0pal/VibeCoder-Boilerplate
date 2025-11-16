@@ -1,12 +1,12 @@
-# VibeCoder Existing Project Integration Agent
+# ClaudeContext Existing Project Integration Agent
 
-> **Purpose:** Integrate VibeCoder boilerplate documentation system with existing Django, Laravel, Python, JavaScript, or PHP projects without disrupting existing structure.
+> **Purpose:** Integrate ClaudeContext boilerplate documentation system with existing Django, Laravel, Python, JavaScript, or PHP projects without disrupting existing structure.
 
 ## Activation Trigger
 
 When user says:
 - "Integrate with existing project"
-- "Add VibeCoder to my existing Django/Laravel/Python project"
+- "Add ClaudeContext to my existing Django/Laravel/Python project"
 - "Document my existing codebase"
 - Or similar integration requests
 
@@ -16,7 +16,7 @@ You are an expert at analyzing existing codebases and generating comprehensive d
 1. **Detect and analyze the existing project structure**
 2. **Generate documentation FROM the actual codebase**
 3. **Preserve all existing files and structure**
-4. **Create VibeCoder context files based on reality, not templates**
+4. **Create ClaudeContext context files based on reality, not templates**
 5. **Get user productive with Claude FAST (< 10 minutes)**
 
 ## Critical Rules
@@ -534,13 +534,13 @@ Then generate conventions.md that documents ACTUAL patterns:
 
 > Document significant technical decisions with context and rationale.
 
-## [DATE] - VibeCoder Documentation Integration
+## [DATE] - ClaudeContext Documentation Integration
 
 ### Context
-Integrated VibeCoder boilerplate documentation system with existing [PROJECT_TYPE] project to improve Claude AI collaboration.
+Integrated ClaudeContext boilerplate documentation system with existing [PROJECT_TYPE] project to improve Claude AI collaboration.
 
 ### Decision
-Added VibeCoder documentation structure while preserving all existing project files and architecture.
+Added ClaudeContext documentation structure while preserving all existing project files and architecture.
 
 ### Current State Analysis
 - **Framework:** [Framework + Version]
@@ -666,7 +666,7 @@ Write `docs/.claude/features/documentation-maintenance/spec.md`:
 # Feature: Documentation Maintenance
 
 ## Overview
-Keep VibeCoder documentation synchronized with the evolving [Project Name] codebase.
+Keep ClaudeContext documentation synchronized with the evolving [Project Name] codebase.
 
 ## Objectives
 - ✅ Initial documentation generated from existing codebase
@@ -691,7 +691,7 @@ Keep VibeCoder documentation synchronized with the evolving [Project Name] codeb
    - [ ] Archive obsolete documentation
 
 3. **Team Workflow**
-   - [ ] Share VibeCoder workflow with team
+   - [ ] Share ClaudeContext workflow with team
    - [ ] Establish documentation review cadence
    - [ ] Create process for updating docs with code changes
 
@@ -713,7 +713,7 @@ Update documentation when:
 
 ---
 *Status: In Progress*
-*Created: [DATE] during VibeCoder integration*
+*Created: [DATE] during ClaudeContext integration*
 ```
 
 ### Step 5: Validation & Verification
@@ -776,7 +776,7 @@ ls -la | grep -E "^d" | grep -v "^drwx.*\s\.$" | grep -v "^drwx.*\s\.\.$"
 **Show user what was accomplished:**
 
 ```markdown
-✅ **VibeCoder Documentation Integration Complete!**
+✅ **ClaudeContext Documentation Integration Complete!**
 
 ## Project Detected
 - **Type:** [Django / Laravel / Python / etc.]
@@ -828,7 +828,7 @@ cat docs/.claude/context/tech-stack.md
 
 **Action:** Review for accuracy and update any incorrect inferences.
 
-### 2. Start Using VibeCoder with Claude
+### 2. Start Using ClaudeContext with Claude
 
 **Standard development session:**
 ```

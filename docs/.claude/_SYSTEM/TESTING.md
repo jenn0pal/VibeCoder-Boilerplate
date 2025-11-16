@@ -1,4 +1,4 @@
-# VibeCoder Boilerplate - Test Scenarios & Validation
+# ClaudeContext Boilerplate - Test Scenarios & Validation
 
 > **Purpose:** Comprehensive test scenarios to validate both new and existing project workflows before release.
 
@@ -14,7 +14,7 @@
 ## Test Scenario 1: New Django Project (Happy Path)
 
 ### Setup
-- Fresh clone of VibeCoder boilerplate
+- Fresh clone of ClaudeContext boilerplate
 - No existing project files
 - User wants to create a new Django project
 
@@ -63,7 +63,7 @@
 ## Test Scenario 2: New Laravel Project (Happy Path)
 
 ### Setup
-- Fresh clone of VibeCoder boilerplate
+- Fresh clone of ClaudeContext boilerplate
 - No existing project files
 - User wants to create a new Laravel project
 
@@ -120,8 +120,8 @@ myproject/
 ```
 
 ### Steps
-1. User copies VibeCoder docs/ and CLAUDE.md to existing project
-2. User runs: `Integrate VibeCoder with my existing Django project`
+1. User copies ClaudeContext docs/ and CLAUDE.md to existing project
+2. User runs: `Integrate ClaudeContext with my existing Django project`
 3. Claude detects Django project (finds manage.py)
 4. Claude scans structure (finds apps/, tests/, etc.)
 5. Claude reads settings.py and requirements.txt
@@ -190,8 +190,8 @@ shopapi/
 ```
 
 ### Steps
-1. User copies VibeCoder to existing Laravel project
-2. User runs: `Integrate VibeCoder with my existing Laravel project`
+1. User copies ClaudeContext to existing Laravel project
+2. User runs: `Integrate ClaudeContext with my existing Laravel project`
 3. Claude detects Laravel (finds artisan)
 4. Claude scans Models (User, Product, Order) and Controllers
 5. Claude reads composer.json
@@ -248,7 +248,7 @@ Agent should:
    You should use the EXISTING project integration workflow instead:
 
    Load docs/.claude/_SYSTEM/existing-project-integration.md
-   Integrate VibeCoder with my existing Django project
+   Integrate ClaudeContext with my existing Django project
    ```
 
 ### Current Behavior (Before Fix)
@@ -296,7 +296,7 @@ Agent should:
 - Just Python files in src/
 
 ### Steps
-1. User runs: `Integrate VibeCoder with my existing Python project`
+1. User runs: `Integrate ClaudeContext with my existing Python project`
 2. Agent scans for project markers
 3. Finds no framework-specific files
 
@@ -531,7 +531,7 @@ For each test scenario, run:
 #!/bin/bash
 # validation-test.sh
 
-echo "=== VibeCoder Workflow Validation ==="
+echo "=== ClaudeContext Workflow Validation ==="
 
 # Test 1: Check required templates exist
 echo "Checking templates..."
@@ -637,7 +637,7 @@ echo -e "\n=== Validation Complete ==="
    echo 'INSTALLED_APPS = ["users", "tasks"]' > myproject/settings.py
    echo -e "Django==5.0\npsycopg2==2.9\ndjangorestframework==3.14" > requirements.txt
 
-   # Copy VibeCoder
+   # Copy ClaudeContext
    git clone https://github.com/jenn0pal/vibecoding-boilerplate.git /tmp/vb
    cp -r /tmp/vb/docs .
    cp /tmp/vb/CLAUDE.md .
@@ -653,7 +653,7 @@ echo -e "\n=== Validation Complete ==="
    Start Claude session:
    ```
    Load docs/.claude/_SYSTEM/existing-project-integration.md
-   Integrate VibeCoder with my existing Django project
+   Integrate ClaudeContext with my existing Django project
 
    [Respond to Claude]:
    Task management system - Production - 3 developers
