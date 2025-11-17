@@ -143,27 +143,6 @@ Last completed: [task]
 Today's goal: [objective]
 ```
 
-**Onboard new team member:**
-```
-Load CLAUDE.md
-Load docs/.claude/_SYSTEM/onboarding-guide.md
-Load docs/.claude/context/project-overview.md
-Load docs/.claude/context/conventions.md
-
-New Team Member: [Name]
-Role: [Backend/Frontend/Full-stack/DevOps]
-Experience Level: [Junior/Mid/Senior]
-Start Date: [Date]
-Onboarding Buddy: [Assigned team member]
-
-Please help me:
-1. Create personalized onboarding checklist
-2. Identify good first issues based on their experience
-3. Set up development environment guide for their role
-4. Plan first week learning path
-5. Create onboarding tracking document (ONBOARDING-[Name].md)
-```
-
 **Code review:**
 ```
 Load CLAUDE.md and conventions.md
