@@ -36,7 +36,7 @@ Examples: `REFACTOR-001-user-dashboard.md`, `REFACTOR-002-auth-service.md`
 
 ## Workflow
 
-1. Copy template: `cp docs/.claude/_TEMPLATES/refactoring-plan.md docs/.claude/refactoring/REFACTOR-XXX.md`
+1. Copy template: `cp docs/.claude/_TEMPLATES/_BASE/refactoring-plan.md docs/.claude/refactoring/REFACTOR-XXX.md`
 2. Fill out current state and goals
 3. Ensure tests exist and pass
 4. Load in Claude session
@@ -45,4 +45,4 @@ Examples: `REFACTOR-001-user-dashboard.md`, `REFACTOR-002-auth-service.md`
 
 ## Template Location
 
-`docs/.claude/_TEMPLATES/refactoring-plan.md`
+`docs/.claude/_TEMPLATES/_BASE/refactoring-plan.md`

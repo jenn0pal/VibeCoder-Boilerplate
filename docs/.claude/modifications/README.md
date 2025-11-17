@@ -23,11 +23,11 @@ Examples: `MOD-001-theme-orange.md`, `MOD-002-add-validation.md`
 
 ## Workflow
 
-1. Copy template: `cp docs/.claude/_TEMPLATES/code-modification.md docs/.claude/modifications/MOD-XXX.md`
+1. Copy template: `cp docs/.claude/_TEMPLATES/_BASE/code-modification.md docs/.claude/modifications/MOD-XXX.md`
 2. Fill out template
 3. Load in Claude session
 4. After completion: `mv` to `docs/.claude/archive/modifications/`
 
 ## Template Location
 
-`docs/.claude/_TEMPLATES/code-modification.md`
+`docs/.claude/_TEMPLATES/_BASE/code-modification.md`

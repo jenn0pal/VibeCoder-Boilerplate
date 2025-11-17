@@ -45,11 +45,11 @@ This feature requires multiple phases with different specializations.
 
 Please help me:
 1. Create a feature implementation workflow using the template at:
-   docs/.claude/_TEMPLATES/feature-implementation-workflow.md
+   docs/.claude/_TEMPLATES/_BASE/feature-implementation-workflow.md
 2. Break down the feature into logical phases
 3. Assign appropriate agents to each phase
 4. Create individual phase task files using the template at:
-   docs/.claude/_TEMPLATES/phase-task.md
+   docs/.claude/_TEMPLATES/_BASE/phase-task.md
 ```
 
 ### 2. Working on a Specific Phase
@@ -312,8 +312,8 @@ Status: Not Started
 
 ## Related Documentation
 
-- **Feature Workflow Template:** `docs/.claude/_TEMPLATES/feature-implementation-workflow.md`
-- **Phase Task Template:** `docs/.claude/_TEMPLATES/phase-task.md`
+- **Feature Workflow Template:** `docs/.claude/_TEMPLATES/_BASE/feature-implementation-workflow.md`
+- **Phase Task Template:** `docs/.claude/_TEMPLATES/_BASE/phase-task.md`
 - **Agent Guides:** `docs/.claude/_SYSTEM/agents/`
 - **Project Conventions:** `docs/.claude/context/conventions.md`
 - **Decision Log:** `docs/.claude/context/decision-log.md`
@@ -322,7 +322,7 @@ Status: Not Started
 
 ### Create new feature with phases:
 ```
-Load docs/.claude/_TEMPLATES/feature-implementation-workflow.md
+Load docs/.claude/_TEMPLATES/_BASE/feature-implementation-workflow.md
 Create new feature: [name]
 ```
 

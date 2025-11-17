@@ -27,7 +27,7 @@ BUG-[ID]-brief-description.md
 
 ### Bug File Template
 
-Copy from `docs/.claude/_TEMPLATES/task-management.md` (lines 109-152) or use this quick template:
+Copy from `docs/.claude/_TEMPLATES/_BASE/task-management.md` (lines 109-152) or use this quick template:
 
 ```markdown
 # BUG-[ID]: [Bug Title]
@@ -102,7 +102,7 @@ Copy from `docs/.claude/_TEMPLATES/task-management.md` (lines 109-152) or use th
 ### 1. Create Bug Report
 ```bash
 # Create bug file
-cp docs/.claude/_TEMPLATES/task-management.md docs/.claude/bugs/BUG-001-description.md
+cp docs/.claude/_TEMPLATES/_BASE/task-management.md docs/.claude/bugs/BUG-001-description.md
 # Edit to fill in details
 ```
 
@@ -176,7 +176,7 @@ You can track bugs in multiple ways:
 
 ## Example Bug Files
 
-See `docs/.claude/_TEMPLATES/task-management.md` for the full bug report template.
+See `docs/.claude/_TEMPLATES/_BASE/task-management.md` for the full bug report template.
 
 ---
 

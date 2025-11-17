@@ -1,1 +1,1 @@
--- Replace this with template context from `docs/.claude/_TEMPLATES/project-overview.md` --
+-- Replace this with template context from `docs/.claude/_TEMPLATES/_BASE/project-overview.md` --
